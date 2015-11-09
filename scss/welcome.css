@@ -12,13 +12,6 @@
 .homepage_content h2 {
   font-size: 1.1rem;
   text-transform: uppercase; }
-.homepage_content hr {
-  widgth: 3em;
-  display: block;
-  height: 2px;
-  border: 0;
-  border-top: 2px solid #8bc6db;
-  margin: 2rem 0; }
 .homepage_content h3 {
   font-size: 1.35em;
   font-weight: 400;
