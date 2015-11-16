@@ -42,7 +42,7 @@ header {
 .panel_logo {
 	margin-bottom: 0.2em;
 	border-radius: 50%;
-    border: 3px solid #FFF;
+    border: 1px solid #FFF;
     box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.3);
 }
 
@@ -51,6 +51,7 @@ header {
 	margin: 10px auto;
 	color: $base;
 	text-align: center;
+	padding-left: 0.5em;
 }
 
 .name {
@@ -120,6 +121,12 @@ nav {
 		color: $base;
 		margin-left: 0.5em;
 		padding-top: 0.2em;
+	}
+
+	.info {
+		&:hover {
+			color: $linkedin;
+		}
 	}
 
 	.twitter {

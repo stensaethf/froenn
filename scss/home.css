@@ -385,14 +385,15 @@ header {
 .panel_logo {
   margin-bottom: 0.2em;
   border-radius: 50%;
-  border: 3px solid #FFF;
+  border: 1px solid #FFF;
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.3); }
 
 .copyright {
   font-size: 0.8em;
   margin: 10px auto;
   color: #D4D4D4;
-  text-align: center; }
+  text-align: center;
+  padding-left: 0.5em; }
 
 .name {
   color: #FFFFFF;
@@ -449,6 +450,8 @@ nav i {
   color: #D4D4D4;
   margin-left: 0.5em;
   padding-top: 0.2em; }
+nav .info:hover {
+  color: #0076B7; }
 nav .twitter:hover {
   color: #50ABF1; }
 nav .github:hover {
