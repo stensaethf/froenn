@@ -45,6 +45,11 @@ html {
 	width: 100%;
 }
 
+.navigation_wrapper {
+	float: right;
+	padding-right: 1em;
+}
+
 .content {
 	background: $white;
 	width: 100%;
@@ -57,7 +62,7 @@ html {
 	font-weight: lighter;
 	font-family: Courier New;
 	letter-spacing: 4px;
-	padding-left: 0.5em;
+	padding-left: 1em;
 	padding-top: 0.4em;
 	float: left;
 }
