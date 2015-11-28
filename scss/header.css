@@ -784,6 +784,24 @@ header {
 .panel_divider_third {
   border-width: 0px; }
 
+.content_wrapper {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  color: #FFFFFF;
+  font-weight: 100; }
+
+.info_div {
+  background: #FFFFFF;
+  position: fixed;
+  border: 1px solid #D4D4D4;
+  width: 300px;
+  height: 400px;
+  margin: -10% auto auto -15%;
+  top: 30%;
+  left: 50%;
+  text-align: center; }
+
 p {
   margin: 0;
   padding: 0;
