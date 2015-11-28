@@ -2,9 +2,17 @@
 <html>
 	<head>
 		<title>Frederik Roenn - Developer</title>
+		<meta charset="utf-8">
+	    <meta name="author" content="Fred Roenn">
 		<link rel="stylesheet" href="scss/home.css">
 		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:400,700" type="text/css">
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+		<script type="text/javascript">
+			function showHide(id) {
+				var e = document.getElementById(id);
+				e.style.display = (e.style.display == 'block') ? 'nonde' : 'block';
+			}
+		</script>
 	</head>
 	<body>
 		<header id="main_navigation" class="clearfix">
@@ -31,7 +39,7 @@
 
 					<nav class="navigation_wrapper">
 						<!-- Information -->
-						<a href="#"><i class="fa fa-info info"></i></a>
+						<a href="javascript:showHide('info-div')"><i class="fa fa-info info"></i></a>
 						<!-- Twitter -->
 						<a href="#"><i class="fa fa-twitter twitter"></i></a>
 						<!-- Github -->
@@ -49,6 +57,12 @@
 				</div>
 			</div>
 		</header>
+		
+		<div id="info-div" style="display:none;">
+			<p>
+				INFORMATION.
+			</p>
+		</div>
 
 		<div class="content-wrapper">
 			
