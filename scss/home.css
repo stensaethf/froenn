@@ -393,6 +393,13 @@ header {
   top: 60%;
   left: 50%;
   transform: translate(-50%, -50%); }
+  .info_div p {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    color: black;
+    z-index: 9999; }
 
 .panel_logo {
   margin-bottom: 0.2em;
