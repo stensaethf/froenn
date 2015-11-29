@@ -738,7 +738,19 @@ header {
   max-height: 200px;
   width: 80%;
   min-padding: 4rem 0;
-  padding: 10rem 0; }
+  padding: 10rem 0;
+  position: relative; }
+
+.info_div {
+  background: #FFFFFF;
+  border: 1px solid #D4D4D4;
+  width: 300px;
+  height: 400px;
+  position: absolute;
+  align-self: center;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
 
 .panel_logo {
   margin-bottom: 0.2em;
@@ -783,28 +795,6 @@ header {
 
 .panel_divider_third {
   border-width: 0px; }
-
-.content_wrapper {
-  height: 100%;
-  width: 100%;
-  text-align: center;
-  color: #FFFFFF;
-  font-weight: 100; }
-
-.info_div {
-  background: #FFFFFF;
-  position: fixed;
-  border: 1px solid #D4D4D4;
-  max-width: 300px;
-  max-height: 400px;
-  width: 50%;
-  height: 70%;
-  margin: -10% -15% -10% -15%;
-  top: 30%;
-  left: 50%;
-  text-align: center; }
-  .info_div h4 {
-    z-index: 9999; }
 
 p {
   margin: 0;
