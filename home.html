@@ -14,58 +14,67 @@
 				e.style.display = (e.style.display == 'block') ? 'none' : 'block';
 			}
 		</script>
+		<script type="text/javascript">
+			function hide(id) {
+				var e = document.getElementById(id);
+				e.style.display = (e.style.display == 'block') ? 'none' : 'none';
+			}
+		</script>
 	</head>
 	<body>
 		<header id="main_navigation" class="clearfix">
-			<div class="panel_full">
-				<div class="panel_small">
+			<a href="javascript:hide('info-div')">
+				<div class="panel_full">
+					<div class="panel_small">
 
-					<!-- Picture -->
-					<a href="#" title="link to Frederik Roenn website">
-						<img src="scss/images/logo.jpg" width="100" height="100" alt="Frederik Roenn logo" class="panel_logo">
-					</a>
+						<!-- Picture -->
+						<a href="#" title="link to Frederik Roenn website">
+							<img src="scss/images/logo.jpg" width="100" height="100" alt="Frederik Roenn logo" class="panel_logo">
+						</a>
 
-					<h1>
-						<a href="#" class="name" title="link to Frederik Roenn website">Frederik Roenn</a>
-					</h1>
-					<hr class="panel_divider">
+						<h1>
+							<a href="#" class="name" title="link to Frederik Roenn website">Frederik Roenn</a>
+						</h1>
+						<hr class="panel_divider">
 
-					<p class="panel_cover_desc">Your time is limited, don't waste it living someone else's life.</p>
-					<hr class="panel_divider panel_divider_second">
+						<p class="panel_cover_desc">Your time is limited, don't waste it living someone else's life.</p>
+						<hr class="panel_divider panel_divider_second">
 
-					<!-- Blog -->
-					<a href='#' class='button'>Blog</a>
-					
-					<hr class="panel_divider panel_divider_third">
+						<!-- Blog -->
+						<a href='#' class='button'>Blog</a>
+						
+						<hr class="panel_divider panel_divider_third">
 
-					<nav class="navigation_wrapper">
-						<!-- Information -->
-						<a href="javascript:showHide('info-div')"><i class="fa fa-info info"></i></a>
-						<!-- Twitter -->
-						<a href="#"><i class="fa fa-twitter twitter"></i></a>
-						<!-- Github -->
-						<a href="#"><i class="fa fa-github github"></i></a>
-						<!-- LinkedIn -->
-						<a href="#"><i class="fa fa-linkedin linkedin"></i></a>
-						<!-- Mail -->
-						<a href="#"><i class="fa fa-envelope-o gmail"></i></a>
-						<!-- Sign In Button -->
-						<a href="#"><i class="fa fa-sign-in sign_in"></i></a>
-					</nav>
+						<nav class="navigation_wrapper">
+							<!-- Information -->
+							<a href="javascript:showHide('info-div')"><i class="fa fa-info info"></i></a>
+							<!-- Twitter -->
+							<a href="#"><i class="fa fa-twitter twitter"></i></a>
+							<!-- Github -->
+							<a href="#"><i class="fa fa-github github"></i></a>
+							<!-- LinkedIn -->
+							<a href="#"><i class="fa fa-linkedin linkedin"></i></a>
+							<!-- Mail -->
+							<a href="#"><i class="fa fa-envelope-o gmail"></i></a>
+							<!-- Sign In Button -->
+							<a href="#"><i class="fa fa-sign-in sign_in"></i></a>
+						</nav>
 
-					<p class="copyright">&copy; 2015 Frederik Roenn</p>
+						<p class="copyright">&copy; 2015 Frederik Roenn</p>
 
+					</div>
 				</div>
-			</div>
-
-			<div class="content_wrapper">
-				<!-- Info box -->
-				<div class="info_div" id="info-div" style="display:none;">
-					<h4>
-						Add info text here...
-					</h4>
+				
+				<div class="content_wrapper">
+					<!-- Info box -->
+					<div class="info_div" id="info-div" style="display:none;">
+						<h4>
+							Add info text here...
+							Click anywhere outside the box to exit.
+						</h4>
+					</div>
 				</div>
-			</div>
+			</a>
 		</header>
 	</body>
 </html>
