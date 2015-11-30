@@ -23,7 +23,7 @@
 	</head>
 	<body>
 		<header>
-			<div class="panel_full" onclick="hide('info-div')">
+			<div class="panel_full" onclick="hide('info-div');hide('resume-div')">
 				<div class="panel_small">
 
 					<!-- Picture -->
@@ -47,6 +47,8 @@
 					<nav class="navigation_wrapper">
 						<!-- Information -->
 						<a href="javascript:showHide('info-div')"><i class="fa fa-info info"></i></a>
+						<!-- Resume -->
+						<a href="javascript:showHide('resume-div')"><i class="fa fa-file-text-o resume"></i></a>
 						<!-- Twitter -->
 						<a href="https://twitter.com/stensaethf"><i class="fa fa-twitter twitter"></i></a>
 						<!-- Github -->
@@ -77,6 +79,15 @@
 							I have spent time working at Cxense and Homi. I'm passionate about learning computer science on my own outside of the classroom and the office. Check out my Github or LinkedIn.
 							
 							<br>
+							<br>
+
+							(Click to exit.)
+						</p>
+					</div>
+					<div class="resume_div" id="resume-div" style="display:none;">
+						<p>
+							Hi!
+							
 							<br>
 
 							(Click to exit.)

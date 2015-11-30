@@ -68,6 +68,34 @@ header {
 	}
 }
 
+.resume_div {
+	border-radius: 25px;
+	background: $base;
+	border: 3px solid black;
+
+	width: 300px;
+	height: 400px;
+
+	position: absolute;
+	align-self: center;
+	top: 60%; left: 50%;
+	transform: translate(-50%,-50%);
+
+	p {
+		padding-top: 1em;
+		padding-bottom: 0.75em;
+		padding-left: 0.5em;
+		padding-right: 0.5em;
+		color: black;
+
+		z-index: 9999;
+	}
+
+	br {
+		line-height: 2;
+	}
+}
+
 .panel_logo {
 	margin-bottom: 0.2em;
 	border-radius: 50%;
@@ -155,6 +183,12 @@ nav {
 	.info {
 		&:hover {
 			color: $linkedin;
+		}
+	}
+
+	.resume {
+		&:hover {
+			color: $gmail;
 		}
 	}
 
