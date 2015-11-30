@@ -395,34 +395,13 @@ header {
   left: 50%;
   transform: translate(-50%, -50%); }
   .info_div p {
-    padding-top: 1em;
+    padding-top: 2em;
     padding-bottom: 0.75em;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
     color: black;
     z-index: 9999; }
   .info_div br {
-    line-height: 2; }
-
-.resume_div {
-  border-radius: 25px;
-  background: #D4D4D4;
-  border: 3px solid black;
-  width: 300px;
-  height: 400px;
-  position: absolute;
-  align-self: center;
-  top: 60%;
-  left: 50%;
-  transform: translate(-50%, -50%); }
-  .resume_div p {
-    padding-top: 1em;
-    padding-bottom: 0.75em;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-    color: black;
-    z-index: 9999; }
-  .resume_div br {
     line-height: 2; }
 
 .panel_logo {
