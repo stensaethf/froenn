@@ -9,11 +9,13 @@ var mongoose = require('mongoose'),
  * Post Schema
  */
 
-var questionSchema = new Schema({
+var postSchema = new Schema({
   title: String,
   slug: { type: String, required: true },
   body: String,
   ts: { type: Date, default: Date.now },
 }, { strict: false });
 
-mongoose.model('Post', questionSchema, 'posts');
+postSchema.index({ title: 1 }, { unique: true });
+
+mongoose.model('Post', postSchema, 'posts');
