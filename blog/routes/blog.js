@@ -11,6 +11,9 @@ module.exports = function() {
 		if (!req.user) {
 			console.log("Access denied");
 			return res.send(401);
+		} else if (!req.user.admin) {
+			console.log("Access denied");
+			return res.send(401);
 		}
 
 		var q = new Question({
@@ -28,6 +31,9 @@ module.exports = function() {
 	// edit a blog post.
 	router.post('/edit/:p_id/', function(req, res) {
 		if (!req.user) {
+			console.log("Access denied");
+			return res.send(401);
+		} else if (!req.user.admin) {
 			console.log("Access denied");
 			return res.send(401);
 		}
@@ -78,6 +84,14 @@ module.exports = function() {
   });
 
 	router.post('delete/:p_id', function(req, res) {
+		if (!req.user) {
+			console.log("Access denied");
+			return res.send(401);
+		} else if (!req.user.admin) {
+			console.log("Access denied");
+			return res.send(401);
+		}
+		
 		// code.
 	});
 
