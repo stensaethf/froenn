@@ -11,7 +11,6 @@ var mongoose = require('mongoose'),
 
 var postSchema = new Schema({
   title: String,
-  slug: { type: String, required: true },
   body: String,
   ts: { type: Date, default: Date.now },
 }, { strict: false });

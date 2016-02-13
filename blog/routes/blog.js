@@ -8,7 +8,21 @@ var Post = mongoose.model('Post');
 module.exports = function() {
 	// submit a new blog post.
 	router.post('/new/', function(req, res) {
-		// code.
+		if (!req.user) {
+			console.log("Access denied");
+			return res.send(401);
+		}
+
+		var q = new Question({
+      title: req.body.title,
+      body: req.body.body,
+    });
+    q.save(function(err, saved_q){
+      if (err) {
+        console.log(err);
+      }
+      return res.redirect('/blog/' + saved_q._id + '/');
+    });
 	});
 
 	// edit a blog post.
