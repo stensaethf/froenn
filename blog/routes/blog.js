@@ -50,9 +50,21 @@ module.exports = function() {
 		});
 	});
 
+	router.get('/edit/:p_id', function(req, res) {
+		// code.
+	});
+
 	// view a specific blog post.
 	router.get('/:p_id/', function(req, res) {
-		// code.
+		Post.findOne({
+			_id: req.params.p_id
+		}, function(err, post) {
+			if (err || !post) {
+				console.log(err);
+			}
+
+			// code.
+		});
 	});
 
 	// view all blog posts.
