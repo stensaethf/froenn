@@ -14,15 +14,15 @@ module.exports = function() {
 		}
 
 		var q = new Question({
-      title: req.body.title,
-      body: req.body.body,
-    });
-    q.save(function(err, saved_q){
-      if (err || !saved_q) {
-        console.log(err);
-      }
-      return res.redirect('/blog/' + saved_q._id + '/');
-    });
+			title: req.body.title,
+			body: req.body.body,
+		});
+		q.save(function(err, saved_q){
+			if (err || !saved_q) {
+				console.log(err);
+			}
+			return res.redirect('/blog/' + saved_q._id + '/');
+		});
 	});
 
 	// edit a blog post.
@@ -67,7 +67,18 @@ module.exports = function() {
 				console.log(err);
 			}
 
-			// code.
+			var renderObj = {
+				title: post.title,
+				user: req.user,
+				body: post.body,
+			};
+
+			res.render('post', renderObj, function(err, html){
+				if (err) {
+					console.log(err);
+				}
+				res.send(html);
+			});
 		});
 	});
 
