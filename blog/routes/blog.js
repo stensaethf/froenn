@@ -50,9 +50,14 @@ module.exports = function() {
 		});
 	});
 
-	router.get('/edit/:p_id', function(req, res) {
+	router.get('/edit/:p_id/', function(req, res) {
 		// code.
 	});
+
+	// edit a post -- redirect
+  router.get('/edit/:p_id', function(req, res){
+    res.redirect(req.originalUrl+'/');
+  });
 
 	router.post('delete/:p_id', function(req, res) {
 		// code.
@@ -82,9 +87,19 @@ module.exports = function() {
 		});
 	});
 
+	// view a post -- redirect
+  router.get('/:p_id', function(req, res){
+    res.redirect(req.originalUrl+'/');
+  });
+
 	// view all blog posts.
 	router.get('/all/', function(req, res) {
 		// code.
 	});
+
+	// view all posts -- redirect
+  router.get('/all', function(req, res){
+    res.redirect(req.originalUrl+'/');
+  });
 	return router;
 };
