@@ -18,7 +18,7 @@ module.exports = function() {
       body: req.body.body,
     });
     q.save(function(err, saved_q){
-      if (err) {
+      if (err || !saved_q) {
         console.log(err);
       }
       return res.redirect('/blog/' + saved_q._id + '/');
@@ -27,7 +27,27 @@ module.exports = function() {
 
 	// edit a blog post.
 	router.post('/edit/:p_id/', function(req, res) {
-		// code.
+		if (!req.user) {
+			console.log("Access denied");
+			return res.send(401);
+		}
+
+		var update = {
+			title: req.body.title,
+			body: req.body.body,
+		};
+
+		Post.findOneAndUpdate({
+			_id: req.body.post_id
+		}, {
+			$set : update
+		}, function(err, post) {
+			if (err || !post) {
+				console.log(err);
+			}
+
+			return res.redirect('/blog/' + post._id + '/');
+		});
 	});
 
 	// view a specific blog post.
