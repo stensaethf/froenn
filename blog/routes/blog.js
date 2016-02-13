@@ -38,7 +38,7 @@ module.exports = function() {
 		};
 
 		Post.findOneAndUpdate({
-			_id: req.body.post_id
+			_id: req.params.p_id
 		}, {
 			$set : update
 		}, function(err, post) {
