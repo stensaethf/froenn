@@ -63,7 +63,7 @@ module.exports = function() {
 				user: req.user,
 			};
 
-			res.render('post', renderObj, function(err, html){
+			res.render('edit_post', renderObj, function(err, html){
 				if (err) {
 					console.log(err);
 				}
@@ -116,7 +116,22 @@ module.exports = function() {
 
 	// view all blog posts.
 	router.get('/all/', function(req, res) {
-		// code.
+		Post.find({}, function(err, posts) {
+			if (err || !posts) {
+				console.log(err);
+
+				var renderObj = {
+					posts: posts
+				};
+
+				res.render('posts_all', renderObj, function(err, html){
+					if (err) {
+						console.log(err);
+					}
+					res.send(html);
+				});
+			}
+		});
 	});
 
 	// view all posts -- redirect
