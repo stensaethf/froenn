@@ -51,7 +51,25 @@ module.exports = function() {
 	});
 
 	router.get('/edit/:p_id/', function(req, res) {
-		// code.
+		Post.findOne({
+			_id: req.params.p_id
+		}, function(err, post) {
+			if (err || !post) {
+				console.log(err);
+			}
+
+			var renderObj = {
+				post: post,
+				user: req.user,
+			};
+
+			res.render('post', renderObj, function(err, html){
+				if (err) {
+					console.log(err);
+				}
+				res.send(html);
+			});
+		});
 	});
 
 	// edit a post -- redirect
@@ -73,9 +91,8 @@ module.exports = function() {
 			}
 
 			var renderObj = {
-				title: post.title,
+				post: post,
 				user: req.user,
-				body: post.body,
 			};
 
 			res.render('post', renderObj, function(err, html){
