@@ -27,6 +27,17 @@ module.exports = function() {
 
   // view new post
   router.get('/new/', function(req, res) {
+    var renderObj = {
+      user: req.user
+    };
+
+    res.render('new_post', renderObj, function(err, html){
+      if (err) {
+        console.log(err);
+      }
+      res.send(html);
+    });
+
     // code.
   });
 
@@ -138,7 +149,8 @@ module.exports = function() {
         console.log(err);
 
         var renderObj = {
-          posts: posts
+          posts: posts,
+          user: req.user
         };
 
         res.render('posts_all', renderObj, function(err, html){
