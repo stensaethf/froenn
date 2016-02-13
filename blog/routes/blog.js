@@ -54,6 +54,10 @@ module.exports = function() {
 		// code.
 	});
 
+	router.post('delete/:p_id', function(req, res) {
+		// code.
+	});
+
 	// view a specific blog post.
 	router.get('/:p_id/', function(req, res) {
 		Post.findOne({
