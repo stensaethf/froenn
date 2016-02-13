@@ -37,8 +37,6 @@ module.exports = function() {
       }
       res.send(html);
     });
-
-    // code.
   });
 
   // edit a post -- redirect
