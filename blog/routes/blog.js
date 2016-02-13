@@ -25,6 +25,16 @@ module.exports = function() {
     });
   });
 
+  // view new post
+  router.get('/new/', function(req, res) {
+    // code.
+  });
+
+  // edit a post -- redirect
+  router.get('/new', function(req, res){
+    res.redirect(req.originalUrl+'/');
+  });
+
   // edit a blog post.
   router.post('/edit/:p_id/', function(req, res) {
     if (!req.user || (req.user && !req.user.admin)) {
@@ -50,6 +60,7 @@ module.exports = function() {
     });
   });
 
+  // view edit a post
   router.get('/edit/:p_id/', function(req, res) {
     Post.findOne({
       _id: req.params.p_id
