@@ -8,10 +8,7 @@ var Post = mongoose.model('Post');
 module.exports = function() {
 	// submit a new blog post.
 	router.post('/new/', function(req, res) {
-		if (!req.user) {
-			console.log("Access denied");
-			return res.send(401);
-		} else if (!req.user.admin) {
+		if (!req.user || (req.user && !req.user.admin)) {
 			console.log("Access denied");
 			return res.send(401);
 		}
@@ -30,10 +27,7 @@ module.exports = function() {
 
 	// edit a blog post.
 	router.post('/edit/:p_id/', function(req, res) {
-		if (!req.user) {
-			console.log("Access denied");
-			return res.send(401);
-		} else if (!req.user.admin) {
+		if (!req.user || (req.user && !req.user.admin)) {
 			console.log("Access denied");
 			return res.send(401);
 		}
@@ -84,14 +78,11 @@ module.exports = function() {
   });
 
 	router.post('delete/:p_id', function(req, res) {
-		if (!req.user) {
-			console.log("Access denied");
-			return res.send(401);
-		} else if (!req.user.admin) {
+		if (!req.user || (req.user && !req.user.admin)) {
 			console.log("Access denied");
 			return res.send(401);
 		}
-		
+
 		// code.
 	});
 
