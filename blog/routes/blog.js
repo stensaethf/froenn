@@ -6,7 +6,22 @@ var mongoose = require('mongoose');
 var Post = mongoose.model('Post');
 
 module.exports = function() {
-  // submit a new blog post.
+  // login
+  router.get('/login/', function(req, res) {
+    // code.
+  });
+
+  // login
+  router.post('/login/', function(req, res) {
+    // code.
+  });
+
+  // logout
+  router.post('/logout/', function(req, res) {
+    // code.
+  });
+
+  // new blog post.
   router.post('/new/', function(req, res) {
     if (!req.user || (req.user && !req.user.admin)) {
       console.log("Access denied");
@@ -39,7 +54,7 @@ module.exports = function() {
     });
   });
 
-  // edit a post -- redirect
+  // new post -- redirect
   router.get('/new', function(req, res){
     res.redirect(req.originalUrl+'/');
   });
@@ -97,6 +112,7 @@ module.exports = function() {
     res.redirect(req.originalUrl+'/');
   });
 
+  // delete a post.
   router.post('delete/:p_id', function(req, res) {
     if (!req.user || (req.user && !req.user.admin)) {
       console.log("Access denied");
