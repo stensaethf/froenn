@@ -11,6 +11,11 @@ module.exports = function() {
     // code.
   });
 
+  // login -- redirect
+  router.get('/login', function(req, res){
+    res.redirect(req.originalUrl+'/');
+  });
+
   // login
   router.post('/login/', function(req, res) {
     // code.
