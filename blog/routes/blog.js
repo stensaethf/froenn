@@ -8,7 +8,16 @@ var Post = mongoose.model('Post');
 module.exports = function() {
   // login
   router.get('/login/', function(req, res) {
-    // code.
+    var renderObj = {
+      user: req.user
+    };
+
+    res.render('login', renderObj, function(err, html){
+      if (err) {
+        console.log(err);
+      }
+      res.send(html);
+    });
   });
 
   // login -- redirect
