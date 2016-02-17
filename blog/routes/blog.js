@@ -23,7 +23,9 @@ module.exports = function() {
 
   // logout
   router.post('/logout/', function(req, res) {
-    // code.
+    req.session.destroy();
+    req.user = undefined;
+    res.redirect('/');
   });
 
   // new blog post.
