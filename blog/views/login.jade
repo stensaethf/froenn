@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1 Welcome back
+  form(action='/login/', method='POST', role='form')
+    label
+      input(type='text', name='username' placeholder='Email' required)
+    label
+      input(type='password', name='password', placeholder='Password' required)
+    div
+      button(type='submit') Log In
