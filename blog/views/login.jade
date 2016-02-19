@@ -4,8 +4,10 @@ block content
   h1 Welcome back
   form(action='/login/', method='POST', role='form')
     label
-      input(type='text', name='username' placeholder='Email' required)
+    	p Email
+      input(type='text', name='email' placeholder='Email' required)
     label
+    	p Password
       input(type='password', name='password', placeholder='Password' required)
     div
       button(type='submit') Log In
