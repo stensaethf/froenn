@@ -130,7 +130,7 @@ module.exports = function() {
   });
 
   // delete a post.
-  router.post('delete/:p_id', function(req, res) {
+  router.post('/delete/:p_id/', function(req, res) {
     if (!req.user || (req.user && !req.user.admin)) {
       console.log("Access denied");
       return res.send(401);

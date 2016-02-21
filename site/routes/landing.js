@@ -35,9 +35,7 @@ module.exports = function() {
 
   // blog.
   router.get('/blog/', function(req, res) {
-    res.render('posts_all', {
-      user: req.user
-    });
+    res.redirect('/blog/all/');
   });
 
   // blog -- redirect
