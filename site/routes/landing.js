@@ -4,12 +4,16 @@ var router = express.Router();
 module.exports = function() {
 	/* GET home page. */
   router.get('/', function(req, res) {
-    // code.
+    res.render('landing', {
+      user: req.user
+    });
   });
 
 	// contact.
 	router.get('/contact/', function(req, res) {
-    // code.
+    res.render('contact', {
+      user: req.user
+    });
   });
 
   // contact -- redirect
@@ -19,7 +23,9 @@ module.exports = function() {
 
   // about.
 	router.get('/about/', function(req, res) {
-    // code.
+    res.render('about', {
+      user: req.user
+    });
   });
 
   // about -- redirect
@@ -29,14 +35,15 @@ module.exports = function() {
 
   // blog.
   router.get('/blog/', function(req, res) {
-    // code.
+    res.render('posts_all', {
+      user: req.user
+    });
   });
 
   // blog -- redirect
   router.get('/blog', function(req, res){
     res.redirect(req.originalUrl+'/');
   });
-
 
 	return router;
 };
