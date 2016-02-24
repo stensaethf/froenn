@@ -25,12 +25,29 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', routes);
 app.use('/users', users);
 
-// catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  var err = new Error('Not Found');
-  err.status = 404;
-  next(err);
+// Handle 404
+app.use(function(req, res) {
+  var renderObj = {title: '404: File Not Found'};
+  if (req.user) {renderObj.user = req.user;}
+  res.status(404);
+  res.render('404.jade', renderObj);
 });
+
+// Handle 500
+app.use(function(error, req, res, next) {
+  var renderObj = {title:'500: Internal Server Error', error: error};
+  if (req.user) {renderObj.user = req.user;}
+  res.status(500);
+  console.log(error);
+  res.render('500.jade', renderObj);
+});
+
+// // catch 404 and forward to error handler
+// app.use(function(req, res, next) {
+//   var err = new Error('Not Found');
+//   err.status = 404;
+//   next(err);
+// });
 
 // error handlers
 

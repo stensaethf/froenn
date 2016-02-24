@@ -1,7 +1,14 @@
 doctype html
-html
+include mixins
+html(lang='en')
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    meta(charset='UTF-8')
+    meta(name="author" content="Fred Roenn")
+    link(rel='stylesheet', href='/css/all.css')
+
+    block title_hook
+        title "Frederik Roenn | Developer"
+    //- code
   body
     block content
+    //- code
