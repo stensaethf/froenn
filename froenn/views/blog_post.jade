@@ -1,3 +1,13 @@
 extends layout
 
 block content
+	.xl-row.xl-gap-4.col.gap-4.justify
+		.xl-fill-2
+			//- left column.
+		.xl-fill-6
+			.post
+				h1 #{post.title}
+				br
+				| #{post.body}
+		.xl-fill-2
+			//- right column.
