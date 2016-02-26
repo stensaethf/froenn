@@ -13,6 +13,7 @@ var postSchema = new Schema({
   title: String,
   body: String,
   ts: { type: Date, default: Date.now },
+  slug: String
 }, { strict: false });
 
 postSchema.index({ title: 1 }, { unique: true });
