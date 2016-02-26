@@ -4,3 +4,7 @@ mixin experience(title, time)
 			strong
 				| #{title}
 		p #{time}
+
+mixin post(p)
+	.post
+		a(href='#') #{p.title}
