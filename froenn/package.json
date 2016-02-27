@@ -30,6 +30,7 @@
     "node-sass": "^3.4.2",
     "nodemon": "^1.9.1",
     "serve-favicon": "~2.3.0",
-    "through2": "^2.0.1"
+    "through2": "^2.0.1",
+    "uglify-js": "^2.6.2"
   }
 }
