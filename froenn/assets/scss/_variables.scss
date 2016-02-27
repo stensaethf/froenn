@@ -12,3 +12,10 @@ $primary-color: black;
 $secondary-color: white;
 $tertiary-color: gray;
 $warning-color: red;
+
+// MEDIA QUERIES
+// ------------------------------
+
+@mixin xl {
+  @media (min-width: 768px) { @content; }
+}
