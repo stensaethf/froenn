@@ -1,0 +1,3 @@
+{
+  "ignore": ["assets/*", "dev.log", "views/*"]
+}
