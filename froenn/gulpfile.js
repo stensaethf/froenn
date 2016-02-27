@@ -7,7 +7,9 @@ var merge = require('merge-stream');
 var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 var gulpif = require('gulp-if');
+var mocha = require('gulp-mocha');
 var jade = require('gulp-jade');
+var through = require('through2');
 var path = require('path');
 
 var PRODUCTION = process.env.FROENNDEV !== '1';
