@@ -1,0 +1,8 @@
+screenshots/*
+node_modules/*
+.npm-debug.log
+npm-debug.log
+.mongo
+public
+dev.log
+.nodemon-find-ref
