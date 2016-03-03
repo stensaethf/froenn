@@ -26,8 +26,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-var index = require('./routes/index');
-var blog = require('./routes/blog');
+var index = require('./routes/index')();
+var blog = require('./routes/blog')();
 
 app.use('/', index);
 app.use('/blog', blog);
