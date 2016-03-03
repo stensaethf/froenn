@@ -2,16 +2,46 @@ var express = require('express');
 var router = express.Router();
 
 module.exports = function() {
-    /* GET home page. */
-    router.get('/', function(req, res, next) {
-      res.render('index');
+  // index.
+  router.get('/', function(req, res) {
+    res.render('index', {
+      user: req.user
     });
+  });
 
-    return router;
+  // contact.
+  router.get('/contact/', function(req, res) {
+    res.render('contact', {
+      user: req.user
+    });
+  });
+
+  // contact -- redirect
+  router.get('/contact', function(req, res){
+    res.redirect(req.originalUrl+'/');
+  });
+
+  // about.
+  router.get('/about/', function(req, res) {
+    res.render('about', {
+      user: req.user
+    });
+  });
+
+  // about -- redirect
+  router.get('/about', function(req, res){
+    res.redirect(req.originalUrl+'/');
+  });
+
+  // blog.
+  router.get('/blog/', function(req, res) {
+    res.redirect('/blog/all/');
+  });
+
+  // blog -- redirect
+  router.get('/blog', function(req, res){
+    res.redirect(req.originalUrl+'/');
+  });
+
+  return router;
 };
-// /* GET home page. */
-// router.get('/', function(req, res, next) {
-//   res.render('index');
-// });
-
-// module.exports = router;
