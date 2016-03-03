@@ -4,16 +4,12 @@ var router = express.Router();
 module.exports = function() {
   // index.
   router.get('/', function(req, res) {
-    res.render('index', {
-      user: req.user
-    });
+    res.render('index', {});
   });
 
   // contact.
   router.get('/contact/', function(req, res) {
-    res.render('contact', {
-      user: req.user
-    });
+    res.render('contact', {});
   });
 
   // contact -- redirect
@@ -23,9 +19,7 @@ module.exports = function() {
 
   // about.
   router.get('/about/', function(req, res) {
-    res.render('about', {
-      user: req.user
-    });
+    res.render('about', {});
   });
 
   // about -- redirect
