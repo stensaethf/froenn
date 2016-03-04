@@ -2,16 +2,19 @@ extends layout
 
 block content
 	.personal-info.center
-		img.thumbnail(src="/images/fred.jpg")
-		h1 Fred Roenn
-		p Technology enthusiast, student, programmer
-		p Currently @ Homi, Inc.
-		p Summer 2016 @ Facebook, Inc.
-		.col
+		.col.center.gap-1
+			img.thumbnail(src="/images/fred.jpg")
+			h1 Fred Roenn
+			p Technology enthusiast, student, programmer
+			p Currently @ Homi, Inc.
+			p Summer 2016 @ Facebook, Inc.
+		.col.gap-1
 			.blog
 				a(href='#')
 					i(class="fa fa-commenting-o")  Blog
 		.row.gap-2.links
+			a(href='#')
+				i.information(class="fa fa-info-circle fa-lg")
 			a(href='https://github.com/stensaethf' target="_blank")
 				i.github(class="fa fa-github fa-lg")
 			a(href='https://no.linkedin.com/in/stensaethf' target="_blank")
