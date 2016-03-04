@@ -19,7 +19,7 @@
 
 .links {
 	i {
-		color: orange;
+		color: $quaternary-color;
 	}
 
 	.github:hover {
@@ -36,5 +36,25 @@
 
 	.resume:hover {
 		color: $resume;
+	}
+}
+
+.blog {
+	padding: 0.5em;
+	border-radius: 20px;
+	border: 1px solid $quaternary-color;
+	margin-top: 1em;
+	margin-bottom: 1em;
+
+	i {
+		color: $quaternary-color;
+	}
+
+	&:hover {
+		border: 1px solid gray;
+
+		i {
+			color: gray;
+		}
 	}
 }
