@@ -16,3 +16,25 @@
 	border-radius: 50%;
 	border: 2px solid white;
 }
+
+.links {
+	i {
+		color: orange;
+	}
+
+	.github:hover {
+		color: $github;
+	}
+
+	.linkedin:hover {
+		color: $linkedin;
+	}
+
+	.email:hover {
+		color: $gmail;
+	}
+
+	.resume:hover {
+		color: $resume;
+	}
+}
