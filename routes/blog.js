@@ -198,5 +198,10 @@ module.exports = function() {
   router.get('/all', function(req, res){
     res.redirect(req.originalUrl+'/');
   });
+
+  router.get('/', function(req, res){
+    res.redirect(req.originalUrl+'/all/');
+  });
+
   return router;
 };
