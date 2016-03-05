@@ -14,7 +14,7 @@
 	height: 100px;
 	width: 100px;
 	border-radius: 50%;
-	border: 2px solid white;
+	border: 2px solid black;
 }
 
 .links {
@@ -55,10 +55,10 @@
 	}
 
 	&:hover {
-		border: 1px solid white;
+		border: 1px solid gray;
 
 		i {
-			color: white;
+			color: gray;
 		}
 	}
 }

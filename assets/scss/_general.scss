@@ -1,5 +1,10 @@
 body {
-	background-color: $primary-color;
+	background-color: $background-color;
+	background-image: url("/images/lantern.jpg");
+	-webkit-background-size: cover;
+   	-moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 p,
