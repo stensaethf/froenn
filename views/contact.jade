@@ -1,11 +1,17 @@
 extends layout
 
 block content
-	.xl-row.xl-gap-4.col.gap-4.justify
-		.xl-fill-2
-			//- left column.
-		.xl-fill-6
-			h1 Contact
-			//- code.
-		.xl-fill-2
-			//- right column.
+    .xl-row.xl-gap-4.col.gap-4.justify
+        .xl-fill-2
+            //- left column.
+        .xl-fill-6
+            h1 Contact
+            form.form.col.gap-2(action='/contact/' method='POST' role='form' enctype='multipart/form-data')
+                label
+                    input(type='text' name='email' placeholder='Enter email here...')
+                label
+                    textarea(type='text' name='text' placeholder='Enter email body here...')
+                .row
+                    button(type='submit') Send
+        .xl-fill-2
+            //- right column.

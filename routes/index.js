@@ -17,6 +17,10 @@ module.exports = function() {
     res.redirect(req.originalUrl+'/');
   });
 
+  router.post('/contact/', function(req, res) {
+    // code.
+  });
+
   // about.
   router.get('/about/', function(req, res) {
     res.render('about', {});
