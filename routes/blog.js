@@ -178,19 +178,19 @@ module.exports = function() {
     Post.find({}, function(err, posts) {
       if (err || !posts) {
         console.log(err);
-
-        var renderObj = {
-          posts: posts,
-          user: req.user
-        };
-
-        res.render('posts_all', renderObj, function(err, html){
-          if (err) {
-            console.log(err);
-          }
-          res.send(html);
-        });
       }
+
+      var renderObj = {
+        posts: posts,
+        user: req.user
+      };
+
+      res.render('posts_all', renderObj, function(err, html){
+        if (err) {
+          console.log(err);
+        }
+        res.send(html);
+      });
     });
   });
 
