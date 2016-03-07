@@ -8,9 +8,9 @@ block content
             h1 Contact
             form.form.col.gap-2(action='/contact/' method='POST' role='form' enctype='multipart/form-data')
                 label
-                    input(type='text' name='email' placeholder='Enter email here...')
+                    input(type='text' name='email' placeholder='Email...')
                 label
-                    textarea(type='text' name='text' placeholder='Enter email body here...')
+                    textarea(type='text' name='text' placeholder='Email body...' style='height: 200px;')
                 .row
                     button(type='submit') Send
         .xl-fill-2
