@@ -2,12 +2,15 @@ extends layout
 
 block content
   h1 Welcome back Fred
-  form(action='/login/', method='POST', role='form')
-    label
-    	p Email
-      input(type='text', name='email' placeholder='Email' required)
-    label
-    	p Password
-      input(type='password', name='password', placeholder='Password' required)
-    div
-      button(type='submit') Log In
+  if !user
+    form(action='/login/', method='POST', role='form')
+      label
+      	p Email
+        input(type='text', name='email' placeholder='Email' required)
+      label
+      	p Password
+        input(type='password', name='password', placeholder='Password' required)
+      div
+        button(type='submit') Log In
+  else
+    p Looks like you're already logged in, Fred...
