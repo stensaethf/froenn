@@ -6,6 +6,23 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
+// load up the db
+var connect = function () {
+  var options = { server: { socketOptions: { keepAlive: 1 } } };
+  mongoose.connect(config.db, options);
+};
+connect();
+
+// Error handler
+mongoose.connection.on('error', function (err) {
+  console.log(err);
+});
+
+// Reconnect when closed
+mongoose.connection.on('disconnected', function () {
+  connect();
+});
+
 // Models
 require('./models/post');
 require('./models/user');
