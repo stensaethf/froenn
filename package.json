@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "FROENNDEV=1 gulp & nodemon -e js ./bin/www"
+    "dev": "FROENNDEV=1 gulp & nodemon -e js ./bin/www",
+    "startmongo": "mongod -f ./mongoconf.yml",
   },
   "dependencies": {
     "body-parser": "~1.13.2",

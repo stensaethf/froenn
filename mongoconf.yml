@@ -1,0 +1,22 @@
+storage:
+    dbPath: .mongo/db
+    engine: wiredTiger
+    wiredTiger:
+        collectionConfig:
+            blockCompressor: snappy
+systemLog:
+    destination: file
+    path: .mongo/log/mongod.log
+    logAppend: false
+    timeStampFormat: iso8601-local
+    verbosity: 0
+    logRotate: rename
+processManagement:
+    fork: true
+net:
+    port: 27017
+security:
+    authorization: enabled
+operationProfiling:
+   mode: slowOp
+   slowOpThresholdMs: 20
