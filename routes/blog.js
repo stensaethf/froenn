@@ -38,6 +38,32 @@ module.exports = function() {
     res.redirect('/');
   });
 
+  // view all blog posts.
+  router.get('/all/', function(req, res) {
+    Post.find({}, function(err, posts) {
+      if (err || !posts) {
+        console.log(err);
+      }
+
+      var renderObj = {
+        posts: posts,
+        user: req.user
+      };
+
+      res.render('blog', renderObj, function(err, html){
+        if (err) {
+          console.log(err);
+        }
+        res.send(html);
+      });
+    });
+  });
+
+  // view all posts -- redirect
+  router.get('/all', function(req, res){
+    res.redirect(req.originalUrl+'/');
+  });
+
   // new blog post.
   router.post('/new/', function(req, res) {
     if (!req.user || (req.user && !req.user.admin)) {
@@ -63,7 +89,7 @@ module.exports = function() {
       user: req.user
     };
 
-    res.render('new_post', renderObj, function(err, html){
+    res.render('blog_post_new', renderObj, function(err, html){
       if (err) {
         console.log(err);
       }
@@ -115,7 +141,7 @@ module.exports = function() {
         user: req.user,
       };
 
-      res.render('edit_post', renderObj, function(err, html){
+      res.render('blog_post_edit', renderObj, function(err, html){
         if (err) {
           console.log(err);
         }
@@ -159,7 +185,7 @@ module.exports = function() {
         user: req.user,
       };
 
-      res.render('post', renderObj, function(err, html){
+      res.render('blog_post', renderObj, function(err, html){
         if (err) {
           console.log(err);
         }
@@ -170,32 +196,6 @@ module.exports = function() {
 
   // view a post -- redirect
   router.get('/:p_id', function(req, res){
-    res.redirect(req.originalUrl+'/');
-  });
-
-  // view all blog posts.
-  router.get('/all/', function(req, res) {
-    Post.find({}, function(err, posts) {
-      if (err || !posts) {
-        console.log(err);
-      }
-
-      var renderObj = {
-        posts: posts,
-        user: req.user
-      };
-
-      res.render('posts_all', renderObj, function(err, html){
-        if (err) {
-          console.log(err);
-        }
-        res.send(html);
-      });
-    });
-  });
-
-  // view all posts -- redirect
-  router.get('/all', function(req, res){
     res.redirect(req.originalUrl+'/');
   });
 

@@ -6,9 +6,12 @@ block content
 			//- left column.
 		.xl-fill-6
 			.post
-				h1 
-					a(href='/blog/post/#{post.slug}')= post.title
-				br
-				| #{post.body}
+				if post
+					h1 
+						a(href='/blog/post/#{post.slug}')= post.title
+					br
+					| #{post.body}
+				else
+					| Seems like something went wrong...
 		.xl-fill-2
 			//- right column.

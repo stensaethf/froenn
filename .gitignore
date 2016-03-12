@@ -6,3 +6,6 @@ npm-debug.log
 public
 dev.log
 .nodemon-find-ref
+config.js
+seeds/*
+package.json

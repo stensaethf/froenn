@@ -4,6 +4,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
+var config = require('./config');
 var mongoose = require('mongoose');
 
 // load up the db
@@ -41,6 +44,17 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({
+  secret: config.secret,
+  maxAge: 2592000000,
+  store: new MongoStore(
+    { mongooseConnection: mongoose.connection },
+    function(err){
+      console.log(err || 'connect-mongodb setup ok');
+    }),
+  saveUninitialized: true,
+  resave: true
+}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 var index = require('./routes/index')();
