@@ -10,6 +10,11 @@ module.exports = function() {
   // TO DO:
   // add security checks for all routes that require a user.
 
+  // blog.
+  router.get('/', function(req, res) {
+    res.redirect('/blog/all/');
+  });
+
   // login
   router.get('/login/', function(req, res) {
     var renderObj = {
@@ -71,7 +76,7 @@ module.exports = function() {
   router.post('/new/', function(req, res) {
     if (!req.user || (req.user && !req.user.admin)) {
       console.log("Access denied");
-      return res.send(401);
+      return res.sendStatus(401);
     }
 
     var q = new Question({
@@ -89,6 +94,11 @@ module.exports = function() {
 
   // view new post
   router.get('/new/', function(req, res) {
+    if (!req.user || (req.user && !req.user.admin)) {
+      console.log("Access denied");
+      return res.sendStatus(401);
+    }
+
     var renderObj = {
       user: req.user
     };
@@ -110,7 +120,7 @@ module.exports = function() {
   router.post('/edit/:p_id/', function(req, res) {
     if (!req.user || (req.user && !req.user.admin)) {
       console.log("Access denied");
-      return res.send(401);
+      return res.sendStatus(401);
     }
 
     var update = {
@@ -133,6 +143,11 @@ module.exports = function() {
 
   // view edit a post
   router.get('/edit/:p_id/', function(req, res) {
+    if (!req.user || (req.user && !req.user.admin)) {
+      console.log("Access denied");
+      return res.sendStatus(401);
+    }
+
     Post.findOne({
       _id: req.params.p_id
     }, function(err, post) {
@@ -163,7 +178,7 @@ module.exports = function() {
   router.post('/delete/:p_id/', function(req, res) {
     if (!req.user || (req.user && !req.user.admin)) {
       console.log("Access denied");
-      return res.send(401);
+      return res.sendStatus(401);
     }
 
     Post.findOneAndRemove({

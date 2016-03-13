@@ -67,15 +67,5 @@ module.exports = function() {
     res.redirect(req.originalUrl+'/');
   });
 
-  // blog.
-  router.get('/blog/', function(req, res) {
-    res.redirect('/blog/all/');
-  });
-
-  // blog -- redirect
-  router.get('/blog', function(req, res){
-    res.redirect(req.originalUrl+'/');
-  });
-
   return router;
 };
