@@ -77,6 +77,7 @@ module.exports = function() {
     var q = new Question({
       title: req.body.title,
       body: req.body.body,
+      author: req.user._id
     });
     q.save(function(err, saved_q){
       if (err || !saved_q) {
