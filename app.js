@@ -61,7 +61,7 @@ var index = require('./routes/index')();
 var blog = require('./routes/blog')();
 
 app.use('/', index);
-app.use('/blog', blog);
+app.use('/blog/', blog);
 
 // Handle 404
 app.use(function(req, res) {
