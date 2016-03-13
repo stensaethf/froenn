@@ -6,8 +6,7 @@ block content
             //- left column.
         .xl-fill-6
             h1 Blog
-            if !user 
-                //- change this later on.
+            if user 
                 form(action="/blog/new/")
                     input(type="submit" value="New post")
             if posts && posts.length
