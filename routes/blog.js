@@ -7,9 +7,6 @@ var Post = mongoose.model('Post');
 var User = mongoose.model('User');
 
 module.exports = function() {
-  // TO DO:
-  // add security checks for all routes that require a user.
-
   // blog.
   router.get('/', function(req, res) {
     res.redirect('/blog/all/');
