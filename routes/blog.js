@@ -57,6 +57,11 @@ module.exports = function() {
       }
       if (!users) {
         // create user.
+
+        // f_n --> req.body.f_n
+        // l_n --> req.body.l_n
+        // email --> req.body.email
+        // password --> req.body.password
       } else {
         console.log("A user already exists.");
         return res.redirect('/blog/login/');
