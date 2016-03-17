@@ -34,6 +34,7 @@ module.exports = function() {
   // login
   router.post('/login/', function(req, res) {
     // code.
+    res.redirect('/blog/');
   });
 
   // logout
@@ -41,6 +42,11 @@ module.exports = function() {
     req.session.destroy();
     req.user = undefined;
     res.redirect('/');
+  });
+
+  // new user
+  router.post('/user/new/', function(req, res) {
+    // code.
   });
 
   // view all blog posts.
