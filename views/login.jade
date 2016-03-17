@@ -3,7 +3,7 @@ extends layout
 block content
   h1 Welcome back
   if user
-    p Looks like you're already logged in, #{user.f_n}...
+    p Looks like you're already logged in, #{user.f_n} #{user.l_n}...
   else
     form(action='/login/', method='POST', role='form')
       label
