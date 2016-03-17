@@ -62,6 +62,30 @@ module.exports = function() {
         // l_n --> req.body.l_n
         // email --> req.body.email
         // password --> req.body.password
+
+        var u = new User({
+          password: req.body.password,
+          f_n: req.body.f_n,
+          l_n: req.body.l_n,
+          email: req.body.email,
+          admin: true,
+        });
+
+        // save user
+        u.save(function(err){
+          if (err) {
+            console.log(err);
+            return res.render('register', {});
+          }
+          
+          // automatically login user and redirect to homepage
+          req.login(u, function(err) {
+            if (err) {
+              console.log(err);
+            }
+            return res.redirect('/blog/');
+          });
+        });
       } else {
         console.log("A user already exists.");
         return res.redirect('/blog/login/');
