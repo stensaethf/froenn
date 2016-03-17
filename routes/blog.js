@@ -56,13 +56,6 @@ module.exports = function() {
         console.log(err);
       }
       if (!users) {
-        // create user.
-
-        // f_n --> req.body.f_n
-        // l_n --> req.body.l_n
-        // email --> req.body.email
-        // password --> req.body.password
-
         var u = new User({
           password: req.body.password,
           f_n: req.body.f_n,
@@ -75,7 +68,7 @@ module.exports = function() {
         u.save(function(err){
           if (err) {
             console.log(err);
-            return res.render('register', {});
+            return res.render('register');
           }
           
           // automatically login user and redirect to homepage
@@ -104,12 +97,7 @@ module.exports = function() {
         console.log(err);
       }
       if (!users) {
-        res.render('register', {}, function(err, html){
-          if (err) {
-            console.log(err);
-          }
-          res.send(html);
-        });
+        res.render('register');
       } else {
         console.log("A user already exists.");
         return res.redirect('/blog/login/');
