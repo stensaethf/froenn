@@ -31,16 +31,25 @@ module.exports = function() {
     res.redirect(req.originalUrl+'/');
   });
 
-  // login
-  router.post('/login/', function(req, res) {
-    if (req.user) {
-      return res.redirect('/blog/');
-    }
+  // Setup login with regular auth
+  router.post('/login',
+    passport.authenticate('user', {
+      successRedirect: '/blog/',
+      failureRedirect: '/login',
+      failureFlash: 'Invalid email or password.'
+    })
+  );
 
-    // code.
+  // // login
+  // router.post('/login/', function(req, res) {
+  //   if (req.user) {
+  //     return res.redirect('/blog/');
+  //   }
+
+  //   // code.
     
-    res.redirect('/blog/');
-  });
+  //   res.redirect('/blog/');
+  // });
 
   // logout
   router.post('/logout/', function(req, res) {
