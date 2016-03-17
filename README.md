@@ -2,7 +2,6 @@
 Source code for my personal website.
 
 To-do:
-- add security checks for all routes that require a user.
 - create user route(s).
 - allow people to comment on posts.
 - redesign of index page.

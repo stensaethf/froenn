@@ -33,7 +33,12 @@ module.exports = function() {
 
   // login
   router.post('/login/', function(req, res) {
+    if (req.user) {
+      return res.redirect('/blog/');
+    }
+
     // code.
+    
     res.redirect('/blog/');
   });
 
@@ -46,7 +51,46 @@ module.exports = function() {
 
   // new user
   router.post('/user/new/', function(req, res) {
-    // code.
+    User.find({}, function(err, users) {
+      if (err) {
+        console.log(err);
+      }
+      if (!users) {
+        // create user.
+      } else {
+        console.log("A user already exists.");
+        return res.redirect('/blog/login/');
+      }
+    });
+  });
+
+  // new user
+  router.get('/user/new/', function(req, res) {
+    if (req.user) {
+      return res.redirect('/blog/');
+    }
+
+    User.find({}, function(err, users) {
+      if (err) {
+        console.log(err);
+      }
+      if (!users) {
+        res.render('register', {}, function(err, html){
+          if (err) {
+            console.log(err);
+          }
+          res.send(html);
+        });
+      } else {
+        console.log("A user already exists.");
+        return res.redirect('/blog/login/');
+      }
+    });
+  });
+
+  // new user -- redirect
+  router.get('/user/new', function(req, res){
+    res.redirect(req.originalUrl+'/');
   });
 
   // view all blog posts.
@@ -79,7 +123,7 @@ module.exports = function() {
   router.post('/new/', function(req, res) {
     if (!req.user || (req.user && !req.user.admin)) {
       console.log("Access denied");
-      return res.sendStatus(401);
+      return res.redirect('/blog/login/');
     }
 
     var q = new Question({
@@ -99,7 +143,7 @@ module.exports = function() {
   router.get('/new/', function(req, res) {
     if (!req.user || (req.user && !req.user.admin)) {
       console.log("Access denied");
-      return res.sendStatus(401);
+      return res.redirect('/blog/login/');
     }
 
     var renderObj = {
@@ -123,7 +167,7 @@ module.exports = function() {
   router.post('/edit/:p_id/', function(req, res) {
     if (!req.user || (req.user && !req.user.admin)) {
       console.log("Access denied");
-      return res.sendStatus(401);
+      return res.redirect('/blog/login/');
     }
 
     var update = {
@@ -148,7 +192,7 @@ module.exports = function() {
   router.get('/edit/:p_id/', function(req, res) {
     if (!req.user || (req.user && !req.user.admin)) {
       console.log("Access denied");
-      return res.sendStatus(401);
+      return res.redirect('/blog/login/');
     }
 
     Post.findOne({
@@ -181,7 +225,7 @@ module.exports = function() {
   router.post('/delete/:p_id/', function(req, res) {
     if (!req.user || (req.user && !req.user.admin)) {
       console.log("Access denied");
-      return res.sendStatus(401);
+      return res.redirect('/blog/login/');
     }
 
     Post.findOneAndRemove({

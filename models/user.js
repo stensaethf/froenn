@@ -13,6 +13,8 @@ var userSchema = new Schema({
   admin: { type: Boolean, default: false },
   email: { type: String, default: '' },
   hashed_password: { type: String, default: '' },
+  f_n: String, // first name
+  l_n: String // last name
 }, { strict: false });
 
 /**
