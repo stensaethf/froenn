@@ -8,6 +8,7 @@ var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 var config = require('./config');
 var mongoose = require('mongoose');
+var passport = require('passport');
 
 // load up the db
 var connect = function () {
@@ -55,10 +56,14 @@ app.use(session({
   saveUninitialized: true,
   resave: true
 }));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 
+passport = require('./routes/passport')(passport);
+
 var index = require('./routes/index')();
-var blog = require('./routes/blog')();
+var blog = require('./routes/blog')(passport);
 
 app.use('/', index);
 app.use('/blog/', blog);

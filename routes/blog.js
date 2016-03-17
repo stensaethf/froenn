@@ -39,18 +39,7 @@ module.exports = function() {
       failureFlash: 'Invalid email or password.'
     })
   );
-
-  // // login
-  // router.post('/login/', function(req, res) {
-  //   if (req.user) {
-  //     return res.redirect('/blog/');
-  //   }
-
-  //   // code.
-    
-  //   res.redirect('/blog/');
-  // });
-
+  
   // logout
   router.post('/logout/', function(req, res) {
     req.session.destroy();
