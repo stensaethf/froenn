@@ -13,7 +13,23 @@ var server  = email.server.connect({
 module.exports = function() {
   // index.
   router.get('/', function(req, res) {
-    res.render('index', {});
+    Post.find({}, function(err, posts) {
+      if (err || !posts) {
+        console.log(err);
+      }
+
+      var renderObj = {
+        posts: posts,
+        user: req.user
+      };
+
+      res.render('index', renderObj, function(err, html){
+        if (err) {
+          console.log(err);
+        }
+        res.send(html);
+      });
+    });
   });
 
   // contact.
