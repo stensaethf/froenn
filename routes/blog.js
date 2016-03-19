@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 var Post = mongoose.model('Post');
 var User = mongoose.model('User');
 
-module.exports = function() {
+module.exports = function(passport) {
   // blog.
   router.get('/', function(req, res) {
     res.redirect('/blog/all/');
@@ -32,14 +32,14 @@ module.exports = function() {
   });
 
   // Setup login with regular auth
-  router.post('/login',
+  router.post('/login/',
     passport.authenticate('user', {
       successRedirect: '/blog/',
-      failureRedirect: '/login',
+      failureRedirect: '/blog/login/',
       failureFlash: 'Invalid email or password.'
     })
   );
-  
+
   // logout
   router.post('/logout/', function(req, res) {
     req.session.destroy();
@@ -94,11 +94,11 @@ module.exports = function() {
       if (err) {
         console.log(err);
       }
-      if (!users) {
-        res.render('register');
-      } else {
+      if (users && users.length) {
         console.log("A user already exists.");
         return res.redirect('/blog/login/');
+      } else {
+        res.render('register');
       }
     });
   });

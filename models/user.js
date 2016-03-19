@@ -10,10 +10,11 @@ var mongoose = require('mongoose'),
  * User Schema
  */
 
-var userSchema = new Schema({
+var UserSchema = new Schema({
   admin: { type: Boolean, default: false },
   email: { type: String, default: '' },
   hashed_password: { type: String, default: '' },
+  salt: { type: String, default: '' },
   f_n: String, // first name
   l_n: String // last name
 }, { strict: false });
@@ -34,7 +35,7 @@ UserSchema
  * Methods
  */
 
-userSchema.methods = {
+UserSchema.methods = {
   authenticate: function (plainText) {
     return this.encryptPassword(plainText) === this.hashed_password;
   },
@@ -55,6 +56,6 @@ userSchema.methods = {
   },
 };
 
-userSchema.index({ email: 1 }, { unique: true });
+UserSchema.index({ email: 1 }, { unique: true });
 
-mongoose.model('User', userSchema, 'users');
+mongoose.model('User', UserSchema, 'users');
