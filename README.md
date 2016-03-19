@@ -2,7 +2,6 @@
 Source code for my personal website.
 
 To-do:
-- create user route(s). --> mostly done, but need to do req.login.
 - allow people to comment on posts.
 - redesign of index page.
 - redesign about page.
