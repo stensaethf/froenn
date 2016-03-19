@@ -53,7 +53,7 @@ module.exports = function(passport) {
       if (err) {
         console.log(err);
       }
-      if (!users) {
+      if (!users.length) {
         var u = new User({
           password: req.body.password,
           f_n: req.body.f_n,
@@ -95,7 +95,7 @@ module.exports = function(passport) {
         console.log(err);
       }
       if (users && users.length) {
-        console.log("A user already exists.");
+        console.log("A \'" + users[0].f_n + "\' user already exists.");
         return res.redirect('/blog/login/');
       } else {
         res.render('register');
