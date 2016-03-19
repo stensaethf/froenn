@@ -41,10 +41,10 @@ module.exports = function(passport) {
   );
 
   // logout
-  router.post('/logout/', function(req, res) {
+  router.get('/logout/', function(req, res) {
     req.session.destroy();
     req.user = undefined;
-    res.redirect('/');
+    res.redirect('/blog/');
   });
 
   // new user
