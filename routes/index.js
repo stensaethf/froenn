@@ -18,7 +18,10 @@ var User = mongoose.model('User');
 module.exports = function() {
   // index.
   router.get('/', function(req, res) {
-    Post.find({}, function(err, posts) {
+    Post.find({}
+    )
+    .sort('-ts')
+    .exec(function(err, posts) {
       if (err || !posts) {
         console.log(err);
       }

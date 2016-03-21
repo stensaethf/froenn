@@ -110,7 +110,10 @@ module.exports = function(passport) {
 
   // view all blog posts.
   router.get('/all/', function(req, res) {
-    Post.find({}, function(err, posts) {
+    Post.find({}
+    )
+    .sort('-ts')
+    .exec(function(err, posts) {
       if (err || !posts) {
         console.log(err);
       }
