@@ -136,21 +136,23 @@ module.exports = function(passport) {
 
   // new blog post.
   router.post('/new/', function(req, res) {
+    console.log(req.body);
     if (!req.user || (req.user && !req.user.admin)) {
       console.log("Access denied");
       return res.redirect('/blog/login/');
     }
 
-    var q = new Question({
+    var q = new Post({
       title: req.body.title,
-      body: req.body.body,
+      body: req.body.desc,
       author: req.user._id
     });
     q.save(function(err, saved_q){
       if (err || !saved_q) {
         console.log(err);
       }
-      return res.redirect('/blog/' + saved_q._id + '/');
+      console.log('got here!');
+      return res.redirect('/blog/post/' + saved_q._id + '/');
     });
   });
 
@@ -253,7 +255,7 @@ module.exports = function(passport) {
   });
 
   // view a specific blog post.
-  router.get('/:p_id/', function(req, res) {
+  router.get('/post/:p_id/', function(req, res) {
     Post.findOne({
       _id: req.params.p_id
     }, function(err, post) {
@@ -276,7 +278,7 @@ module.exports = function(passport) {
   });
 
   // view a post -- redirect
-  router.get('/:p_id', function(req, res){
+  router.get('/post/:p_id', function(req, res){
     res.redirect(req.originalUrl+'/');
   });
 
