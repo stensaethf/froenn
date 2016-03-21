@@ -136,7 +136,6 @@ module.exports = function(passport) {
 
   // new blog post.
   router.post('/new/', function(req, res) {
-    console.log(req.body);
     if (!req.user || (req.user && !req.user.admin)) {
       console.log("Access denied");
       return res.redirect('/blog/login/');
