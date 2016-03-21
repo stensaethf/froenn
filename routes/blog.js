@@ -151,7 +151,7 @@ module.exports = function(passport) {
         console.log(err);
       }
       console.log('got here!');
-      return res.redirect('/blog/post/' + saved_q._id + '/');
+      return res.redirect('/blog/' + saved_q._id + '/');
     });
   });
 
@@ -254,7 +254,7 @@ module.exports = function(passport) {
   });
 
   // view a specific blog post.
-  router.get('/post/:p_id/', function(req, res) {
+  router.get('/:p_id/', function(req, res) {
     Post.findOne({
       _id: req.params.p_id
     }, function(err, post) {
@@ -277,7 +277,7 @@ module.exports = function(passport) {
   });
 
   // view a post -- redirect
-  router.get('/post/:p_id', function(req, res){
+  router.get('/:p_id', function(req, res){
     res.redirect(req.originalUrl+'/');
   });
 

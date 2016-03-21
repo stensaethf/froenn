@@ -8,7 +8,7 @@ block content
 			.post
 				if post
 					h1 
-						a(href='/blog/post/#{post.slug}')= post.title
+						a(href='/blog/#{post.slug}')= post.title
 					br
 					| #{post.body}
 				else
