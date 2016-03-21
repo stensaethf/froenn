@@ -10,6 +10,11 @@ var server  = email.server.connect({
    ssl:     true
 });
 
+// Models
+var mongoose = require('mongoose');
+var Post = mongoose.model('Post');
+var User = mongoose.model('User');
+
 module.exports = function() {
   // index.
   router.get('/', function(req, res) {
