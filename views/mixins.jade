@@ -6,6 +6,7 @@ mixin experience(title, time)
 		p #{time}
 
 mixin post(p)
-	.post
-		h1
-			a(href='/blog/post/#{p._id}/')= p.title
+	a(href='/blog/post/#{p._id}/')
+		p
+			strong #{p.title}
+		span #{p.ts}

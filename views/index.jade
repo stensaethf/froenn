@@ -28,5 +28,9 @@ block content
               i.email(class="fa fa-envelope-o fa-lg")
             a(href='/documents/resume.pdf' target="_blank")
               i.resume(class="fa fa-file-text-o fa-lg")
+          .col.gap-3.justify
+            if posts && posts.length
+              for post in posts
+                mixin post(post)
         .xl-fill-2
             //- right column.
