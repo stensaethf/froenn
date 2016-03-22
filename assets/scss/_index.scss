@@ -31,24 +31,15 @@
 	}
 }
 
-.blog {
-	padding: 0.5em;
-	border-radius: 20px;
-	border: 1px solid $quaternary-color;
-
-	i {
-		color: $quaternary-color;
-	}
-
-	&:hover {
-		border: 1px solid gray;
-
-		i {
-			color: gray;
-		}
-	}
-}
-
 .main {
 	padding: 3.5em 1em;
+}
+
+.post {
+	text-decoration: none;
+	color: black;
+
+	&:hover {
+		color: gray;
+	}
 }
