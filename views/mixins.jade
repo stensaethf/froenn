@@ -7,6 +7,5 @@ mixin experience(title, time)
 
 mixin post(p)
 	a(href='/blog/#{p._id}/')
-		p
-			strong #{p.title}
-		span #{p.ts}
+		strong #{p.title}
+		span  - #{p.ts}
