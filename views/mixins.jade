@@ -8,4 +8,4 @@ mixin experience(title, time)
 mixin post(p)
 	a.post(href='/blog/#{p._id}/')
 		strong #{p.title}
-		span  - #{p.ts}
+		span.italic  - #{moment(p.ts).format("MMMM Do, YYYY")}

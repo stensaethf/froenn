@@ -27,14 +27,10 @@ module.exports = function() {
         console.log(err);
       }
 
-      posts = posts.map(function (p) {
-        p.ts = moment(p.ts).format("MMMM Do, YYYY");
-        return p;
-      });
-
       var renderObj = {
         posts: posts,
-        user: req.user
+        user: req.user,
+        moment: moment
       };
 
       res.render('index', renderObj, function(err, html){
