@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
+var moment = require("moment");
 
 var config = require('../config');
-var email   = require("emailjs");
-var server  = email.server.connect({
+var email = require("emailjs");
+var server = email.server.connect({
    user:    config.email.username,
    password: config.email.password,
    host:    config.email.host,
@@ -25,6 +26,11 @@ module.exports = function() {
       if (err || !posts) {
         console.log(err);
       }
+
+      posts = posts.map(function (p) {
+        p.ts = moment(p.ts).format("MMMM Do, YYYY");
+        return p;
+      });
 
       var renderObj = {
         posts: posts,
