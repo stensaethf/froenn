@@ -1,12 +1,8 @@
 .post {
-	padding: 1em;
-	background-color: $secondary-color;
-	border-radius: $radius;
-	margin-bottom: $standard-margin;
-	word-wrap: break-word;
-	overflow-wrap: break-word;
+	text-decoration: none;
+	color: black;
 
-	&>h1 {
-		&:hover { text-decoration: underline; }
+	&:hover {
+		color: gray;
 	}
 }
