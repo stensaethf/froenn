@@ -18,11 +18,6 @@ module.exports = function(passport) {
       user: req.user
     };
 
-    posts = posts.map(function (p) {
-      p.ts = moment(p.ts).format("MMMM Do, YYYY");
-      return p;
-    });
-
     res.render('login', renderObj, function(err, html){
       if (err) {
         console.log(err);
@@ -122,6 +117,11 @@ module.exports = function(passport) {
       if (err || !posts) {
         console.log(err);
       }
+
+      posts = posts.map(function (p) {
+        p.ts = moment(p.ts).format("MMMM Do, YYYY");
+        return p;
+      });
 
       var renderObj = {
         posts: posts,
