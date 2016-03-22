@@ -7,15 +7,16 @@ block content
             if user 
                 form(action="/blog/logout/")
                     input(type="submit" value="Logout")
-        .xl-fill-6
+        .xl-fill-6.col.center.main.gap-3
             h1 Blog
-            if user 
+            if user
                 form(action="/blog/new/")
                     input(type="submit" value="New post")
-            if posts && posts.length
-                for p in posts
-                    mixin post(p)
-            else
-                p Sorry, there are no posts yet...
+            .col.gap-2.justify
+                if posts && posts.length
+                    for p in posts
+                        mixin post(p)
+                else
+                    p Sorry, there are no posts yet...
         .xl-fill-2
             //- right column.

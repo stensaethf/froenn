@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var moment = require('moment');
 
 // Models
 var mongoose = require('mongoose');
@@ -118,14 +119,10 @@ module.exports = function(passport) {
         console.log(err);
       }
 
-      posts = posts.map(function (p) {
-        p.ts = moment(p.ts).format("MMMM Do, YYYY");
-        return p;
-      });
-
       var renderObj = {
         posts: posts,
-        user: req.user
+        user: req.user,
+        moment: moment
       };
 
       res.render('blog', renderObj, function(err, html){

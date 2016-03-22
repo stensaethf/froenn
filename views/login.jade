@@ -1,16 +1,22 @@
 extends layout
 
 block content
-  h1 Welcome back
-  if user
-    p Looks like you're already logged in, #{user.f_n} #{user.l_n}...
-  else
-    form(action='/blog/login/', method='POST', role='form')
-      label
-        p Email
-        input(type='email', name='username' placeholder='Email' required)
-      label
-        p Password
-        input(type='password', name='password', placeholder='Password' required)
-      div
-        button(type='submit') Log In
+  .xl-row.xl-gap-4.col.gap-4.justify
+        .xl-fill-2
+            //- left column.
+        .xl-fill-6.col.center.main.gap-3
+          h1 Welcome back
+          if user
+            p Looks like you're already logged in, #{user.f_n} #{user.l_n}...
+          else
+            form(action='/blog/login/', method='POST', role='form')
+              label
+                p Email
+                input(type='email', name='username' placeholder='Email' required)
+              label
+                p Password
+                input(type='password', name='password', placeholder='Password' required)
+              div
+                button(type='submit') Log In
+        .xl-fill-2
+            //- right column.
