@@ -26,3 +26,12 @@ $resume: gray;
 @mixin xl {
   @media (min-width: 768px) { @content; }
 }
+
+// FONTS
+// ------------------------------
+
+@mixin standard-font {
+  font-family: "myriad-pro", Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+}
