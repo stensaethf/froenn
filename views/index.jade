@@ -3,10 +3,10 @@ extends layout
 block content
   .xl-row.xl-gap-4.col.gap-4.justify
         .xl-fill-2
-            //- left column.
-            if user 
-              form(action="/blog/logout/")
-                  input(type="submit" value="Logout")
+          //- left column.
+          if user
+            form(action="/blog/logout/")
+                input(type="submit" value="Logout")
         .xl-fill-6.col.center.main.gap-3
           .col.center.gap-1
             img.thumbnail(src="/images/fred.jpg")
@@ -15,6 +15,9 @@ block content
             p Past @ Cxense
             p Currently @ Homi, Inc.
             p(style='margin-bottom: 0;') Summer 2016 @ Facebook, Inc.
+            //- p
+              strong Fred Roenn
+              | - junior economics and computer science major at Carleton College, MN, USA. Currently I am working for Homi, a social networking platform that is changing the networking game - pretty exciting stuff! For the 2016 summer I have accepted an offer from Facebook and will be heading out west to Menlo Park - you can expect more on this experience in my blog over the summer.
           .row.gap-2.links
             a(href='/about/')
               i.information(class="fa fa-info-circle fa-lg")
