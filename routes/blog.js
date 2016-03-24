@@ -8,11 +8,6 @@ var Post = mongoose.model('Post');
 var User = mongoose.model('User');
 
 module.exports = function(passport) {
-  // blog.
-  router.get('/', function(req, res) {
-    res.redirect('/blog/all/');
-  });
-
   // login
   router.get('/login/', function(req, res) {
     var renderObj = {
@@ -106,36 +101,6 @@ module.exports = function(passport) {
 
   // new user -- redirect
   router.get('/user/new', function(req, res){
-    res.redirect(req.originalUrl+'/');
-  });
-
-  // view all blog posts.
-  router.get('/all/', function(req, res) {
-    Post.find({}
-    )
-    .sort('-ts')
-    .exec(function(err, posts) {
-      if (err || !posts) {
-        console.log(err);
-      }
-
-      var renderObj = {
-        posts: posts,
-        user: req.user,
-        moment: moment
-      };
-
-      res.render('blog', renderObj, function(err, html){
-        if (err) {
-          console.log(err);
-        }
-        res.send(html);
-      });
-    });
-  });
-
-  // view all posts -- redirect
-  router.get('/all', function(req, res){
     res.redirect(req.originalUrl+'/');
   });
 
@@ -284,10 +249,6 @@ module.exports = function(passport) {
   // view a post -- redirect
   router.get('/:p_id', function(req, res){
     res.redirect(req.originalUrl+'/');
-  });
-
-  router.get('/', function(req, res){
-    res.redirect(req.originalUrl+'/all/');
   });
 
   return router;
