@@ -4,6 +4,9 @@ block content
   .xl-row.xl-gap-4.col.gap-4.justify
         .xl-fill-2
             //- left column.
+            if user 
+              form(action="/blog/logout/")
+                  input(type="submit" value="Logout")
         .xl-fill-6.col.center.main.gap-3
           .col.center.gap-1
             img.thumbnail(src="/images/fred.jpg")
@@ -24,6 +27,9 @@ block content
             a(href='/documents/resume.pdf' target="_blank")
               i.resume(class="fa fa-file-text-o fa-lg")
           .col.gap-2.justify
+            if user
+              form(action="/blog/new/")
+                  input(type="submit" value="New post")
             if posts && posts.length
               for post in posts
                 mixin post(post)
