@@ -1,17 +1,19 @@
 extends layout
 
 block content
-	.xl-row.xl-gap-4.col.gap-4.justify
-		.xl-fill-3
-			//- left column.
-		.xl-fill-6.main.col.justify.gap-2
-			.post
-				if post
-					h1 
-						a(href='/blog/#{post.slug}')= post.title
-					br
-					| #{post.body}
-				else
-					| Seems like something went wrong...
-		.xl-fill-3
-			//- right column.
+    .xl-row.xl-gap-4.col.gap-4.justify
+        .xl-fill-3
+            //- left column.
+        .xl-fill-6.main.col.justify.gap-2
+            .post
+                if post
+                    h1 
+                        a(href='/blog/#{post.slug}')= post.title
+                    br
+                    | #{post.body}
+                else
+                    | Seems like something went wrong...
+            form(action="/")
+                input(type="submit" value="Back")
+        .xl-fill-3
+            //- right column.
