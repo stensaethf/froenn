@@ -30,7 +30,7 @@ module.exports = function(passport) {
   // Setup login with regular auth
   router.post('/login/',
     passport.authenticate('user', {
-      successRedirect: '/blog/',
+      successRedirect: '/',
       failureRedirect: '/blog/login/',
       failureFlash: 'Invalid email or password.'
     })
@@ -40,7 +40,7 @@ module.exports = function(passport) {
   router.get('/logout/', function(req, res) {
     req.session.destroy();
     req.user = undefined;
-    res.redirect('/blog/');
+    res.redirect('/');
   });
 
   // new user
