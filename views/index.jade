@@ -2,7 +2,7 @@ extends layout
 
 block content
   .xl-row.xl-gap-4.col.gap-4.justify
-        .xl-fill-2.col.gap-2.justify
+        .xl-fill-3.col.gap-2.justify
           //- left column.
           if user
             form(action="/blog/logout/")
@@ -35,5 +35,5 @@ block content
                 mixin post(post)
             else
               p Sorry, there are no posts yet...
-        .xl-fill-2
+        .xl-fill-3
             //- right column.
