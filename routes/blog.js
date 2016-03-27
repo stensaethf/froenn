@@ -70,7 +70,7 @@ module.exports = function(passport) {
             if (err) {
               console.log(err);
             }
-            return res.redirect('/blog/');
+            return res.redirect('/');
           });
         });
       } else {
@@ -83,7 +83,7 @@ module.exports = function(passport) {
   // new user
   router.get('/user/new/', function(req, res) {
     if (req.user) {
-      return res.redirect('/blog/');
+      return res.redirect('/');
     }
 
     User.find({}, function(err, users) {
