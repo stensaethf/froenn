@@ -209,7 +209,6 @@ module.exports = function(passport) {
 
   // delete a post.
   router.post('/delete/:p_id/', function(req, res) {
-    console.log('ENTEREd');
     if (!req.user || (req.user && !req.user.admin)) {
       console.log("Access denied");
       return res.redirect('/blog/login/');
@@ -222,6 +221,7 @@ module.exports = function(passport) {
         console.log(err);
       }
     });
+    res.redirect('/');
   });
 
   // view a specific blog post.
