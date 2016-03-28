@@ -4,7 +4,7 @@ block content
   .xl-row.xl-gap-4.col.gap-4.justify
     .xl-fill-2.col.gap-2.justify.main
         //- left column.
-    .xl-fill-6.col.center.main.gap-3
+    .xl-fill-6.col.center.main.gap-3.justify
       h1 Welcome back
       if user
         p Looks like you're already logged in, #{user.f_n} #{user.l_n}...
@@ -16,7 +16,7 @@ block content
           label
             p Password
             input(type='password', name='password', placeholder='Password' required)
-          div
+          div(style='margin-top: 1em;')
             button(type='submit') Log In
     .xl-fill-2.col.gap-2.justify.main
         //- right column.
