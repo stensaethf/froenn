@@ -2,7 +2,7 @@ extends layout
 
 block content
     .xl-row.xl-gap-4.col.gap-4.justify
-        .xl-fill-3.col.gap-2.justify
+        .xl-fill-2.col.gap-2.justify.main
             //- left column.
             if user
                 form(method='POST' action="/blog/delete/#{post._id}/")
@@ -19,5 +19,5 @@ block content
                     p Seems like something went wrong...
             form(action="/")
                 input(type="submit" value="Back")
-        .xl-fill-3.col.gap-2.justify
+        .xl-fill-2.col.gap-2.justify.main
             //- right column.

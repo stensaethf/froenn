@@ -2,7 +2,7 @@ extends layout
 
 block content
   .xl-row.xl-gap-4.col.gap-4.justify
-        .xl-fill-3.col.gap-2.justify
+        .xl-fill-2.col.gap-2.justify.main
           //- left column.
           if user
             form(action="/blog/logout/")
@@ -13,7 +13,7 @@ block content
           .col.center.gap-1
             img.thumbnail(src="/images/fred.jpg")
             h1 Fred Roenn
-            p Technology enthusiast, student, programmer
+            p Technology enthusiast, student, programmer, economist
             p Past @ Cxense
             p Currently @ Homi, Inc.
             p(style='margin-bottom: 0;') Summer 2016 @ Facebook, Inc.
@@ -35,5 +35,5 @@ block content
                 mixin post(post)
             else
               p Sorry, there are no posts yet...
-        .xl-fill-3
+        .xl-fill-2.col.gap-2.justify.main
             //- right column.
