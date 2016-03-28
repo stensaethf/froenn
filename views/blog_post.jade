@@ -4,6 +4,9 @@ block content
     .xl-row.xl-gap-4.col.gap-4.justify
         .xl-fill-3
             //- left column.
+            if user
+                form(type='POST' action="/blog/delete/#{post._id}/")
+                    input(type="submit" value="Delete Post")
         .xl-fill-6.main.col.justify.gap-2
             .post
                 if post
