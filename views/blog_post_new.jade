@@ -2,7 +2,7 @@ extends layout
 
 block content
     .xl-row.xl-gap-4.col.gap-4.justify
-        .xl-fill-2.col.gap-2.justify.main
+        .xl-fill-2.col.gap-2.justify.main.grid-desktop-only
             //- left column.
         .xl-fill-6.main.col.justify.gap-2
             h1 New blog post
@@ -13,5 +13,5 @@ block content
                     textarea(name="desc" placeholder='Additional details' required style='min-height: 250px;')
                 label
                     button(type='submit') Save post
-        .xl-fill-2.col.gap-2.justify.main
+        .xl-fill-2.col.gap-2.justify.main.grid-desktop-only
             //- right column.
