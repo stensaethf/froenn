@@ -1,11 +1,17 @@
 extends layout
 
 block content
-	.xl-row.xl-gap-4.col.gap-4.justify
-		.xl-fill-3
-			//- left column.
-		.xl-fill-6.main.col.justify.gap-2
-			h1 Edit blog post
-			//- code.
-		.xl-fill-3
-			//- right column.
+    .xl-row.xl-gap-4.col.gap-4.justify
+        .xl-fill-3
+            //- left column.
+        .xl-fill-6.main.col.justify.gap-2
+            h1 Edit blog post
+            form.form.col.gap-2(action='/blog/edit/#{post._id}/' method='POST' role='form' enctype='multipart/form-data')
+                label
+                    input(name="title" placeholder="Title" required value='#{post.title}')
+                label
+                    textarea(name="body" placeholder='Additional details' required style='min-height: 250px;' ) #{post.body}
+                label
+                    button(type='submit') Save post
+        .xl-fill-3
+            //- right column.
