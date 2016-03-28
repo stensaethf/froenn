@@ -1,19 +1,25 @@
 extends layout
 
 block content
-  h1 Welcome
-  form(action='/blog/user/new', method='POST', role='form')
-    label
-      p First name
-      input(type='text', name='f_n' placeholder='First name' required)
-    label
-      p Last name
-      input(type='text', name='l_n' placeholder='Last name' required)
-    label
-      p Email
-      input(type='text', name='email' placeholder='Email' required)
-    label
-      p Password
-      input(type='password', name='password', placeholder='Password' required)
-    div
-      button(type='submit') Register
+  .xl-row.xl-gap-4.col.gap-4.justify
+    .xl-fill-2.col.gap-2.justify.main
+      //- left column
+    .xl-fill-6.col.gap-2.justify.main
+      h1 Welcome
+      form(action='/blog/user/new', method='POST', role='form')
+        label
+          p First name
+          input(type='text', name='f_n' placeholder='First name' required)
+        label
+          p Last name
+          input(type='text', name='l_n' placeholder='Last name' required)
+        label
+          p Email
+          input(type='text', name='email' placeholder='Email' required)
+        label
+          p Password
+          input(type='password', name='password', placeholder='Password' required)
+        div(style='margin-top: 1em;')
+          button(type='submit') Register
+    .xl-fill-2.col.gap-2.justify.main
+      //- right column
