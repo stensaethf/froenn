@@ -8,11 +8,10 @@ block content
             .post
                 if post
                     h1 
-                        a(href='/blog/#{post.slug}')= post.title
-                    br
-                    | #{post.body}
+                        a(href='/blog/#{post._id}/')= post.title
+                    p #{post.body}
                 else
-                    | Seems like something went wrong...
+                    p Seems like something went wrong...
             form(action="/")
                 input(type="submit" value="Back")
         .xl-fill-3
