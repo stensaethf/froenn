@@ -12,7 +12,8 @@ var mongoose = require('mongoose'),
 var CommentSchema = new Schema({
   body: String,
   ts: { type: Date, default: Date.now },
-  author: String
+  author: String,
+  post: {type: Schema.Types.ObjectId, ref: 'Post'}
 }, { strict: false });
 
 CommentSchema.index({ body: 1 }, { unique: true });
