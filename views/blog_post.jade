@@ -17,6 +17,10 @@ block content
                     p #{post.body}
                 else
                     p Seems like something went wrong...
+            .comments.gap-2.justify
+                if comments && comments.length
+                    for comment in comments
+                        mixin comment(comment)
             form(action="/")
                 input(type="submit" value="Back")
         .xl-fill-2.col.gap-2.justify.main.grid-desktop-only
