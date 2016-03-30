@@ -6,6 +6,7 @@ var moment = require('moment');
 var mongoose = require('mongoose');
 var Post = mongoose.model('Post');
 var User = mongoose.model('User');
+var Comment = mongoose.model('Comment');
 
 module.exports = function(passport) {
   // login
@@ -232,17 +233,27 @@ module.exports = function(passport) {
       if (err || !post) {
         console.log(err);
       }
-
-      var renderObj = {
-        post: post,
-        user: req.user,
-      };
-
-      res.render('blog_post', renderObj, function(err, html){
+      Comment.find({
+        post: post._id
+      })
+      .sort('-ts')
+      .exec(function(err, comments) {
         if (err) {
           console.log(err);
         }
-        res.send(html);
+
+        var renderObj = {
+          post: post,
+          user: req.user,
+          comments: comments
+        };
+
+        res.render('blog_post', renderObj, function(err, html){
+          if (err) {
+            console.log(err);
+          }
+          res.send(html);
+        });
       });
     });
   });
