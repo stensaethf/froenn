@@ -9,3 +9,8 @@ mixin post(p)
 	a.post(href='/blog/#{p._id}/')
 		strong #{p.title}
 		span.italic  - #{moment(p.ts).format("MMMM Do, YYYY")}
+
+mixin comment(c)
+	.comment
+		| #{c.body}
+		span.italic  - #{moment(p.ts).format("MMMM Do, YYYY")}
