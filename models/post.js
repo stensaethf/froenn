@@ -9,13 +9,13 @@ var mongoose = require('mongoose'),
  * Post Schema
  */
 
-var postSchema = new Schema({
+var PostSchema = new Schema({
   title: String,
   body: String,
   ts: { type: Date, default: Date.now },
   author: {type: Schema.Types.ObjectId, ref: 'User'}
 }, { strict: false });
 
-postSchema.index({ title: 1 }, { unique: true });
+PostSchema.index({ title: 1 }, { unique: true });
 
-mongoose.model('Post', postSchema, 'posts');
+mongoose.model('Post', PostSchema, 'posts');

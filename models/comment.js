@@ -9,12 +9,12 @@ var mongoose = require('mongoose'),
  * Comment Schema
  */
 
-var commentSchema = new Schema({
+var CommentSchema = new Schema({
   body: String,
   ts: { type: Date, default: Date.now },
   author: String
 }, { strict: false });
 
-commentSchema.index({ body: 1 }, { unique: true });
+CommentSchema.index({ body: 1 }, { unique: true });
 
-mongoose.model('Comment', commentSchema, 'comments');
+mongoose.model('Comment', CommentSchema, 'comments');
