@@ -121,7 +121,6 @@ module.exports = function(passport) {
       if (err || !saved_q) {
         console.log(err);
       }
-      console.log('got here!');
       return res.redirect('/blog/' + saved_q._id + '/');
     });
   });
@@ -223,6 +222,28 @@ module.exports = function(passport) {
       }
     });
     res.redirect('/');
+  });
+
+  // new blog post comment.
+  router.post('/:p_id/comment/new/', function(req, res) {
+    Post.findOne({
+      _id: req.params.p_id
+    }, function(err, post) {
+      if (err || !post) {
+        console.log(err);
+      }
+      var c = new Comment({
+        body: req.body.desc,
+        author: req.body.author,
+        post: post._id
+      });
+      c.save(function(err, saved_c){
+        if (err || !saved_c) {
+          console.log(err);
+        }
+        return res.redirect('/blog/' + post._id + '/');
+      });
+    });
   });
 
   // view a specific blog post.
