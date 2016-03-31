@@ -246,6 +246,18 @@ module.exports = function(passport) {
     });
   });
 
+  // delete blog post comment.
+  router.post('/comment/delete/:c_id/', function(req, res) {
+    Comment.findOneAndRemove({
+      _id: req.params.c_id
+    }, function(err) {
+      if (err) {
+        console.log(err);
+      }
+      res.redirect('/blog/' + req.body.p_id + '/');
+    });
+  });
+
   // view a specific blog post.
   router.get('/:p_id/', function(req, res) {
     Post.findOne({
