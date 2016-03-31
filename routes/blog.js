@@ -248,13 +248,18 @@ module.exports = function(passport) {
 
   // delete blog post comment.
   router.post('/comment/delete/:c_id/', function(req, res) {
+    if (!req.user || (req.user && !req.user.admin)) {
+      console.log("Access denied");
+      return res.redirect('/blog/login/');
+    }
+
     Comment.findOneAndRemove({
       _id: req.params.c_id
     }, function(err) {
       if (err) {
         console.log(err);
       }
-      res.redirect('/blog/' + req.body.p_id + '/');
+      return res.redirect('/blog/' + req.body.p_id + '/');
     });
   });
 
