@@ -25,7 +25,7 @@ block content
                         textarea(name="desc" placeholder='...comment...' required style='min-height: 250px;')
                     label
                         button(type='submit') Save comment
-            .comments.gap-2.justify
+            .comments.col.gap-2.justify
                 if comments && comments.length
                     for comment in comments
                         mixin comment(comment)

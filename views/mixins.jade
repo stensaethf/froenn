@@ -1,17 +1,21 @@
 mixin experience(title, time)
-	.job
-		p
-			strong
-				| #{title}
-		p #{time}
+    .job
+        p
+            strong
+                | #{title}
+        p #{time}
 
 mixin post(p)
-	a.post(href='/blog/#{p._id}/')
-		strong #{p.title}
-		span.italic  - #{moment(p.ts).format("MMMM Do, YYYY")}
+    a.post(href='/blog/#{p._id}/')
+        strong #{p.title}
+        span.italic  - #{moment(p.ts).format("MMMM Do, YYYY")}
 
 mixin comment(c)
-	.comment
-		p(style='margin-top: 0;')
-			| #{c.body}
-			span.italic  - #{moment(c.ts).format("MMMM Do, YYYY")}
+    .comment
+        p(style='margin: 0;')
+            | #{c.body}
+            span.italic  - #{moment(c.ts).format("MMMM Do, YYYY")}
+        if user
+            form(method='POST' action="/blog/comment/delete/#{c._id}/" role='form' enctype='multipart/form-data')
+                input(type="hidden" value="#{c.post}" name="p_id")
+                input(type="submit" value="Delete Comment")

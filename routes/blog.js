@@ -221,6 +221,14 @@ module.exports = function(passport) {
         console.log(err);
       }
     });
+
+    Comment.remove({
+      post: req.params.p_id
+    }, function(err) {
+      if (err) {
+        console.log(err);
+      }
+    });
     res.redirect('/');
   });
 
@@ -259,7 +267,7 @@ module.exports = function(passport) {
       if (err) {
         console.log(err);
       }
-      return res.redirect('/blog/' + req.body.p_id + '/');
+    return res.redirect('/blog/' + req.body.p_id + '/');
     });
   });
 
