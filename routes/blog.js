@@ -283,7 +283,8 @@ module.exports = function(passport) {
         var renderObj = {
           post: post,
           user: req.user,
-          comments: comments
+          comments: comments,
+          moment: moment
         };
 
         res.render('blog_post', renderObj, function(err, html){
