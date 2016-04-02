@@ -31,8 +31,10 @@ mongoose.connection.on('disconnected', function () {
 // Models
 require('./models/post');
 require('./models/user');
+require('./models/comment');
 var User = mongoose.model('User');
 var Post = mongoose.model('Post');
+var Comment = mongoose.model('Comment');
 
 var app = express();
 

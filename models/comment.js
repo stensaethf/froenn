@@ -16,6 +16,4 @@ var CommentSchema = new Schema({
   post: {type: Schema.Types.ObjectId, ref: 'Post'}
 }, { strict: false });
 
-CommentSchema.index({ body: 1 }, { unique: true });
-
 mongoose.model('Comment', CommentSchema, 'comments');

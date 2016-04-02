@@ -13,4 +13,4 @@ mixin post(p)
 mixin comment(c)
 	.comment
 		| #{c.body}
-		span.italic  - #{moment(p.ts).format("MMMM Do, YYYY")}
+		span.italic  - #{moment(c.ts).format("MMMM Do, YYYY")}
