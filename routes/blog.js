@@ -214,6 +214,7 @@ module.exports = function(passport) {
       return res.redirect('/blog/login/');
     }
 
+    // delete the post.
     Post.findOneAndRemove({
       _id: req.params.p_id
     }, function (err) {
@@ -222,6 +223,7 @@ module.exports = function(passport) {
       }
     });
 
+    // delete all comments associated with the post.
     Comment.remove({
       post: req.params.p_id
     }, function(err) {
