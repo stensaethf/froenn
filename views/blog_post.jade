@@ -17,6 +17,14 @@ block content
                     p #{post.body}
                 else
                     p Seems like something went wrong...
+            .comment-new
+                form.form.col.gap-2(action='/blog/#{post._id}/comment/new/' method='POST' role='form' enctype='multipart/form-data')
+                    label
+                        input(name="author" placeholder="Name" required)
+                    label
+                        textarea(name="desc" placeholder='...comment...' required style='min-height: 250px;')
+                    label
+                        button(type='submit') Save comment
             .comments.gap-2.justify
                 if comments && comments.length
                     for comment in comments
