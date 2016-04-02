@@ -12,5 +12,6 @@ mixin post(p)
 
 mixin comment(c)
 	.comment
-		| #{c.body}
-		span.italic  - #{moment(c.ts).format("MMMM Do, YYYY")}
+		p(style='margin-top: 0;')
+			| #{c.body}
+			span.italic  - #{moment(c.ts).format("MMMM Do, YYYY")}
