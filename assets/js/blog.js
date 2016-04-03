@@ -4,8 +4,8 @@ var setupSimpleMDE = function(id) {
 };
 
 if ($('#post-body') && $('#post-body').length) {
-  var desc_edit_simplemde = new SimpleMDE({element: document.getElementById("new-post-body"), hideIcons: ['fullscreen', 'guide', 'side-by-side'], autofocus: true, initialValue: $('#post-body').val()});
-  if (desc_edit_simplemde._rendered) {
+  var post_body_simplemde = new SimpleMDE({element: document.getElementById("post-body"), hideIcons: ['fullscreen', 'guide', 'side-by-side'], autofocus: true, initialValue: $('#post-body').val()});
+  if (post_body_simplemde._rendered) {
     setupSimpleMDE('post-body');
   }
 }
