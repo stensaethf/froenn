@@ -114,7 +114,7 @@ module.exports = function(passport) {
 
     var q = new Post({
       title: req.body.title,
-      body: req.body.desc,
+      body: req.body.body,
       author: req.user._id
     });
     q.save(function(err, saved_q){
