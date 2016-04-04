@@ -7,11 +7,13 @@ block content
         .xl-fill-6.main.col.justify.gap-2
             h1 Edit blog post
             form.form.col.gap-2(action='/blog/edit/#{post._id}/' method='POST' role='form' enctype='multipart/form-data')
+                .form-row
+                    span#post-submission-error
                 label
-                    input(name="title" placeholder="Title" required value='#{post.title}')
+                    input(name="title" id='post-title' placeholder="Title" required value='#{post.title}')
                 label
                     textarea(name="body" placeholder='Additional details' required style='min-height: 250px;' id='post-body') #{post.body}
                 label
-                    button(type='submit') Save post
+                    button(type='submit')#submit-post Save post
         .xl-fill-2.col.gap-2.justify.main.grid-desktop-only
             //- right column.

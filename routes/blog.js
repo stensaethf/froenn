@@ -121,7 +121,8 @@ module.exports = function(passport) {
       if (err || !saved_q) {
         console.log(err);
       }
-      return res.redirect('/blog/' + saved_q._id + '/');
+      // return res.redirect('/blog/' + saved_q._id + '/');
+      return res.send({'redirect': '/blog/' + saved_q._id + '/'});
     });
   });
 
@@ -170,7 +171,8 @@ module.exports = function(passport) {
         console.log(err);
       }
 
-      return res.redirect('/blog/' + post._id + '/');
+      // return res.redirect('/blog/' + post._id + '/');
+      return res.send({'redirect': '/blog/' + post._id + '/'});
     });
   });
 
