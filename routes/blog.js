@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var moment = require('moment');
+var marked = require('marked');
 
 // Models
 var mongoose = require('mongoose');
@@ -291,6 +292,8 @@ module.exports = function(passport) {
         if (err) {
           console.log(err);
         }
+
+        post.body = marked(post.body);
 
         var renderObj = {
           post: post,

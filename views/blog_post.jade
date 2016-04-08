@@ -14,7 +14,7 @@ block content
                 if post
                     h1 
                         a(href='/blog/#{post._id}/')= post.title
-                    p #{post.body}
+                    p !{post.body}
                 else
                     p Seems like something went wrong...
             .comment-new
