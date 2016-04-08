@@ -14,7 +14,7 @@ mixin comment(c)
     .comment
         p(style='margin: 0;')
             | #{c.body}
-            span.italic  - #{moment(c.ts).format("MMMM Do, YYYY")}
+            span.italic  - #{c.author}, #{moment(c.ts).format("MMMM Do, YYYY")}
         if user
             form(method='POST' action="/blog/comment/delete/#{c._id}/" role='form' enctype='multipart/form-data')
                 input(type="hidden" value="#{c.post}" name="p_id")
