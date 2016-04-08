@@ -9,6 +9,6 @@ To-do:
 - add markdown render to comments.
 - reset password route(s).
 - change font.
-- make buttons
+- make buttons.
 
 [In progress...]

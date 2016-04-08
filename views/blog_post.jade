@@ -10,25 +10,24 @@ block content
                 form(action="/blog/edit/#{post._id}/")
                     input(type="submit" value="Edit Post")
         .xl-fill-6.main.col.justify.gap-2
-            .post
-                if post
-                    h1 
-                        a(href='/blog/#{post._id}/')= post.title
+            if post
+                .post
+                    h1= post.title
                     p !{post.body}
-                else
-                    p Seems like something went wrong...
-            .comment-new
-                form.form.col.gap-2(action='/blog/#{post._id}/comment/new/' method='POST' role='form' enctype='multipart/form-data')
-                    label
-                        input(name="author" placeholder="Name" required)
-                    label
-                        textarea(name="desc" placeholder='...comment...' required style='min-height: 250px;')
-                    label
-                        button(type='submit') Save comment
-            .comments.col.gap-2.justify
-                if comments && comments.length
-                    for comment in comments
-                        mixin comment(comment)
+                .comment-new
+                    form.form.col.gap-2(action='/blog/#{post._id}/comment/new/' method='POST' role='form' enctype='multipart/form-data')
+                        label
+                            input(name="author" placeholder="Name" required)
+                        label
+                            textarea(name="desc" placeholder='...comment...' required style='min-height: 250px;')
+                        label
+                            button(type='submit') Save comment
+                .comments.col.gap-2.justify
+                    if comments && comments.length
+                        for comment in comments
+                            mixin comment(comment)
+            else
+                p Seems like something went wrong...
             form(action="/")
                 input(type="submit" value="Back")
         .xl-fill-2.col.gap-2.justify.main.grid-desktop-only
