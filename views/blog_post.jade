@@ -16,12 +16,14 @@ block content
                     p !{post.body}
                 .comment-new
                     form.form.col.gap-2(action='/blog/#{post._id}/comment/new/' method='POST' role='form' enctype='multipart/form-data')
+                        .form-row
+                            span#comment-submission-error
                         label
-                            input(name="author" placeholder="Name" required)
+                            input(name="author" id='new-comment-author' placeholder="Name" required)
                         label
-                            textarea(name="desc" placeholder='...comment...' required style='min-height: 250px;')
+                            textarea(name="body" id='new-comment-body' placeholder='...comment...' required style='min-height: 250px;')
                         label
-                            button(type='submit') Save comment
+                            button(type='submit')#submit-comment Save comment
                 .comments.col.gap-2.justify
                     if comments && comments.length
                         for comment in comments

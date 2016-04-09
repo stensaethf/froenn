@@ -246,7 +246,7 @@ module.exports = function(passport) {
         console.log(err);
       }
       var c = new Comment({
-        body: req.body.desc,
+        body: req.body.body,
         author: req.body.author,
         post: post._id
       });
@@ -294,6 +294,10 @@ module.exports = function(passport) {
         }
 
         post.body = marked(post.body);
+        comments = comments.map(function(el) {
+          el.body = marked(el.body);
+          return el;
+        });
 
         var renderObj = {
           post: post,
