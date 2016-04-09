@@ -55,14 +55,14 @@ $('#submit-comment').click(function(event){
 
   if (comment_body_simplemde.value().trim() !== '') {
     if($('#new-comment-author').val() !== ''){
-      var url = location.protocol+'//'+location.host+location.pathname;
+      var url = location.protocol+'//'+location.host+location.pathname+'comment/new/';
       var data = {
         body: comment_body_simplemde.value(),
         author: $('#new-comment-author').val(),
       };
       $.post(url,data,successCallback).fail(failCallback);
     } else {
-      $('#comment-submission-error').html("Error: Post does not have an author");
+      $('#comment-submission-error').html("Error: Comment does not have an author");
     }
   } else {
     $('#comment-submission-error').html("Error: Comment does not have a body");

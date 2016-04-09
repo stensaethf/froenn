@@ -254,7 +254,8 @@ module.exports = function(passport) {
         if (err || !saved_c) {
           console.log(err);
         }
-        return res.redirect('/blog/' + post._id + '/');
+        // return res.redirect('/blog/' + post._id + '/');
+        return res.send({'redirect': '/blog/' + post._id + '/'});
       });
     });
   });
