@@ -1,3 +1,7 @@
+var displayError = function(err) {
+  $('#submission-error').html(err);
+};
+
 var setupSimpleMDE = function(id) {
   $('#'+id).next().next().find('.CodeMirror-scroll').css('min-height', '50px');
   $('#'+id).parent().find('.CodeMirror').css('min-height', '50px');
@@ -24,7 +28,7 @@ $('#submit-post').click(function(event){
     location.href = location.protocol+'//'+location.host+data.redirect;
   }
   function failCallback(data){
-    $('#submission-error').html("Error: Post failed to submit");
+    displayError("Error: Post failed to submit");
   }
 
   if (post_body_simplemde.value().trim() !== '') {
@@ -36,10 +40,10 @@ $('#submit-post').click(function(event){
       };
       $.post(url,data,successCallback).fail(failCallback);
     } else {
-      $('#submission-error').html("Error: Post does not have a title");
+      displayError("Error: Post does not have a title");
     }
   } else {
-    $('#submission-error').html("Error: Post does not have a body");
+    displayError("Error: Post does not have a body");
   }
 });
 
@@ -50,7 +54,7 @@ $('#submit-comment').click(function(event){
     location.href = location.protocol+'//'+location.host+data.redirect;
   }
   function failCallback(data){
-    $('#submission-error').html("Error: Comment failed to submit");
+    displayError("Error: Comment failed to submit");
   }
 
   if (comment_body_simplemde.value().trim() !== '') {
@@ -62,9 +66,9 @@ $('#submit-comment').click(function(event){
       };
       $.post(url,data,successCallback).fail(failCallback);
     } else {
-      $('#submission-error').html("Error: Comment does not have an author");
+      displayError("Error: Comment does not have an author");
     }
   } else {
-    $('#submission-error').html("Error: Comment does not have a body");
+    displayError("Error: Comment does not have a body");
   }
 });
