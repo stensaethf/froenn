@@ -10,6 +10,13 @@ if ($('#post-body') && $('#post-body').length) {
   }
 }
 
+if ($('#new-comment-body') && $('#new-comment-body').length) {
+  var comment_body_simplemde = new SimpleMDE({element: document.getElementById("new-comment-body"), hideIcons: ['fullscreen', 'guide', 'side-by-side'], autofocus: true, initialValue: $('#new-comment-body').val()});
+  if (comment_body_simplemde._rendered) {
+    setupSimpleMDE('new-comment-body');
+  }
+}
+
 $('#submit-post').click(function(event){
   event.preventDefault();
   
@@ -35,13 +42,6 @@ $('#submit-post').click(function(event){
     $('#post-submission-error').html("Error: Post does not have a body");
   }
 });
-
-if ($('#new-comment-body') && $('#new-comment-body').length) {
-  var comment_body_simplemde = new SimpleMDE({element: document.getElementById("new-comment-body"), hideIcons: ['fullscreen', 'guide', 'side-by-side'], autofocus: true, initialValue: $('#new-comment-body').val()});
-  if (comment_body_simplemde._rendered) {
-    setupSimpleMDE('new-comment-body');
-  }
-}
 
 $('#submit-comment').click(function(event){
   event.preventDefault();
