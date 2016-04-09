@@ -8,7 +8,7 @@ block content
             h1 New blog post
             form.form.col.gap-2(action='/blog/new/' method='POST' role='form' enctype='multipart/form-data')
                 .form-row
-                    span#post-submission-error
+                    span#submission-error
                 label
                     input(name="title" id='post-title' placeholder="Title" required)
                 label

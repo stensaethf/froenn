@@ -24,7 +24,7 @@ $('#submit-post').click(function(event){
     location.href = location.protocol+'//'+location.host+data.redirect;
   }
   function failCallback(data){
-    $('#post-submission-error').html("Error: Post failed to submit");
+    $('#submission-error').html("Error: Post failed to submit");
   }
 
   if (post_body_simplemde.value().trim() !== '') {
@@ -36,10 +36,10 @@ $('#submit-post').click(function(event){
       };
       $.post(url,data,successCallback).fail(failCallback);
     } else {
-      $('#post-submission-error').html("Error: Post does not have a title");
+      $('#submission-error').html("Error: Post does not have a title");
     }
   } else {
-    $('#post-submission-error').html("Error: Post does not have a body");
+    $('#submission-error').html("Error: Post does not have a body");
   }
 });
 
@@ -50,7 +50,7 @@ $('#submit-comment').click(function(event){
     location.href = location.protocol+'//'+location.host+data.redirect;
   }
   function failCallback(data){
-    $('#comment-submission-error').html("Error: Comment failed to submit");
+    $('#submission-error').html("Error: Comment failed to submit");
   }
 
   if (comment_body_simplemde.value().trim() !== '') {
@@ -62,9 +62,9 @@ $('#submit-comment').click(function(event){
       };
       $.post(url,data,successCallback).fail(failCallback);
     } else {
-      $('#comment-submission-error').html("Error: Comment does not have an author");
+      $('#submission-error').html("Error: Comment does not have an author");
     }
   } else {
-    $('#comment-submission-error').html("Error: Comment does not have a body");
+    $('#submission-error').html("Error: Comment does not have a body");
   }
 });

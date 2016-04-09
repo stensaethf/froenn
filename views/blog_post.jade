@@ -17,7 +17,7 @@ block content
                 .comment-new
                     form.form.col.gap-2(action='/blog/#{post._id}/comment/new/' method='POST' role='form' enctype='multipart/form-data')
                         .form-row
-                            span#comment-submission-error
+                            span#submission-error
                         label
                             input(name="author" id='new-comment-author' placeholder="Name" required)
                         label
